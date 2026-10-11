@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800">
+  <rect width="1400" height="800" fill="white"/>
+
+  <!-- Домик перенесён над надписью КОНТУР -->
+  <g fill="#000000" transform="translate(462 -4) scale(0.7)">
+    <polygon points="130,520 152,520 152,302 310,144 310,520 332,520 332,92 130,294"/>
+    <polygon points="365,130 387,148 387,520 365,520"/>
+    <polygon points="420,175 442,193 442,520 420,520"/>
+    <polygon points="475,220 497,238 497,520 475,520"/>
+    <polygon points="530,265 552,283 552,520 530,520"/>
+  </g>
+
+  <text x="170" y="535"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="150"
+        font-weight="400"
+        fill="#000000"
+        textLength="1060"
+        lengthAdjust="spacing">КОНТУР</text>
+
+  <text x="170" y="650"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="70"
+        font-weight="400"
+        fill="#000000"
+        textLength="1060"
+        lengthAdjust="spacing">дома из клееного бруса</text>
+</svg>
