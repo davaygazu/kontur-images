@@ -1,0 +1,12 @@
+/* КОНТУР - примеры breakpoint из существующих HTML-блоков.
+   В разных секциях используются разные пороги; это не глобальный стандарт. */
+@media (max-width: 900px) {
+  .kontur-design-scope .kontur-container {
+    width: min(760px, calc(100% - 44px));
+  }
+}
+@media (max-width: 600px) {
+  .kontur-design-scope .kontur-container {
+    width: calc(100% - 32px);
+  }
+}
