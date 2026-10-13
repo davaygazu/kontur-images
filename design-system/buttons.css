@@ -1,0 +1,30 @@
+/* КОНТУР - пример для новых блоков; не подменяет кнопки существующих блоков. */
+.kontur-design-scope .kontur-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #096041;
+  color: #fff;
+  font: 600 15px/1.3 "TildaSans", Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .25s ease, transform .25s ease;
+}
+.kontur-design-scope .kontur-btn:hover { background: #08704b; }
+.kontur-design-scope .kontur-btn:focus-visible { outline: 2px solid #096041; outline-offset: 3px; }
+.kontur-design-scope .kontur-btn--outline {
+  background: transparent;
+  border-color: #096041;
+  color: #096041;
+}
+.kontur-design-scope .kontur-btn--outline:hover { background: rgba(9,96,65,.06); }
+@media (prefers-reduced-motion: reduce) {
+  .kontur-design-scope .kontur-btn { transition: none; }
+}
+/* Примечание: существующие кнопки сайта имеют разные градиенты, размеры и блики.
+   Этот файл - согласованный стартовый образец, а не точная копия каждого варианта. */
