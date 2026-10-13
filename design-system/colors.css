@@ -1,0 +1,14 @@
+/* КОНТУР - палитра из экспорта Tilda 13.10.2026. Для новых изолированных блоков. */
+.kontur-design-scope {
+  --kontur-green: #096041;
+  --kontur-text: #17211e;
+  --kontur-muted: #69736f;
+  --kontur-muted-alt: #6d7773;
+  --kontur-bg: #FAFAF9;
+  --kontur-white: #ffffff;
+  --kontur-line: #e5e9e7;
+  --kontur-line-alt: #e8ece9;
+  color: var(--kontur-text);
+  background: var(--kontur-bg);
+  font-family: "TildaSans", Arial, sans-serif;
+}
