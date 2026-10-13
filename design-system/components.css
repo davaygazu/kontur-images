@@ -1,0 +1,21 @@
+/* КОНТУР - базовые элементы для новых блоков; исходные блоки не затрагивать. */
+.kontur-design-scope, .kontur-design-scope * { box-sizing: border-box; }
+.kontur-design-scope .kontur-container {
+  width: min(1200px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.kontur-design-scope .kontur-card {
+  background: #fff;
+  border: 1px solid #e5e9e7;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.kontur-design-scope .kontur-section-label {
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #096041;
+}
+.kontur-design-scope .kontur-muted { color: #69736f; }
