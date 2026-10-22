@@ -35,16 +35,10 @@
     notice.hidden = false;
     records.forEach(stop);
   }
-  function hideWhenReady() {
-    if (!shown || closed) return;
-    var waiting = false;
-    records.forEach(function (_, img) { if (pending(img)) waiting = true; });
-    if (!waiting) notice.hidden = true;
-  }
   function check(img, rec) {
     var src = source(img);
     if (rec.src !== src) { stop(rec); rec.src = src; }
-    if (!pending(img)) { stop(rec); hideWhenReady(); return; }
+    if (!pending(img)) { stop(rec); return; }
     if (shown || closed) return;
     if (img.complete && img.naturalWidth === 0) { reveal(img); return; }
     if (!rec.timer) rec.timer = setTimeout(function () { rec.timer = 0; reveal(img); }, 6000);
@@ -53,7 +47,7 @@
     entries.forEach(function (entry) {
       var rec = records.get(entry.target);
       if (!rec) return;
-      if (entry.isIntersecting) check(entry.target, rec); else { stop(rec); hideWhenReady(); }
+      if (entry.isIntersecting) check(entry.target, rec); else { stop(rec); }
     });
   });
   function register(img) {
