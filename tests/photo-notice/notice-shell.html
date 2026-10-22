@@ -1,0 +1,16 @@
+<style>
+#kontur-photo-notice[hidden]{display:none!important}
+#kontur-photo-notice{box-sizing:border-box;position:fixed;z-index:100000;left:16px;right:16px;bottom:calc(88px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;display:flex;gap:12px;padding:18px 42px 18px 16px;background:#fff;border:1px solid #d6e5dc;border-radius:12px;box-shadow:0 8px 32px rgba(9,60,41,.13);font-family:TildaSans,Arial,sans-serif;color:#17382b;text-align:left;line-height:1.4}
+#kontur-photo-notice *{box-sizing:border-box}
+#kontur-photo-notice .kpn-icon{flex:0 0 32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#e4f3e9;color:#096041;font-size:22px;font-weight:600}
+#kontur-photo-notice .kpn-title{display:block;font-size:16px;line-height:1.25;font-weight:700;margin:0 0 6px}
+#kontur-photo-notice .kpn-text{margin:0;font-size:14px;line-height:1.4;color:#626763}
+#kontur-photo-notice button{position:absolute;top:7px;right:7px;width:32px;height:32px;padding:0;border:0;background:transparent;color:#777f79;font:26px/32px Arial,sans-serif;cursor:pointer}
+#kontur-photo-notice button:focus-visible{outline:2px solid #096041;outline-offset:1px;border-radius:6px}
+@media(min-width:901px){#kontur-photo-notice{left:auto;right:24px;bottom:100px;margin:0;width:440px}}
+</style>
+<div id="kontur-photo-notice" role="status" aria-live="polite" aria-atomic="true" hidden>
+<span class="kpn-icon" aria-hidden="true">i</span>
+<div><strong class="kpn-title">Фотографии загружаются медленно</strong><p class="kpn-text">Если у вас включён VPN, попробуйте отключить его и обновить страницу.</p></div>
+<button type="button" aria-label="Закрыть уведомление">×</button>
+</div>
