@@ -1,0 +1,1778 @@
+<!doctype html> <meta charset="utf-8"> <style>
+
+#ks7{
+
+  --g:#096041;--t:#17211e;--m:#69736f;--line:#e3e8e5;--bg:#FAFAF9;
+
+  font-family:"TildaSans",Arial,sans-serif;color:var(--t);background:var(--bg);
+
+  padding:110px 0 100px
+
+}
+
+#ks7 *{box-sizing:border-box}
+
+.ks7-w{width:min(1200px,calc(100% - 64px));margin:auto}
+
+.ks7-label{font-size:14px;line-height:1;letter-spacing:.20em;font-weight:700;color:var(--g);margin-bottom:28px}
+
+.ks7-head{display:grid;grid-template-columns:1.35fr .65fr;gap:70px;align-items:end;margin-bottom:52px}
+
+.ks7-head h2{font-size:clamp(46px,5.1vw,74px);line-height:.98;letter-spacing:-.045em;font-weight:600;margin:0}
+
+.ks7-head h2 span{color:var(--g)}
+
+.ks7-head p{font-size:19px;line-height:1.55;color:var(--m);margin:0 0 4px;max-width:470px}
+
+.ks7-card{height:560px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr;box-shadow:0 18px 60px rgba(18,38,31,.05)}
+
+.ks7-copy{padding:42px 44px 34px;display:flex;flex-direction:column}
+
+.ks7-count{font-size:13px;letter-spacing:.12em;font-weight:700;color:var(--g);margin-bottom:12px}
+
+.ks7-title{font-size:clamp(34px,3.3vw,50px);line-height:1.02;letter-spacing:-.04em;font-weight:600;margin:0 0 18px}
+
+.ks7-text{font-size:17px;line-height:1.58;color:var(--m);max-width:440px;margin:0}
+
+.ks7-controls{margin-top:22px;padding-top:0}
+
+.ks7-nav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}
+
+.ks7-step{appearance:none;border:1px solid #dce3df;background:#fff;color:#7b8580;width:34px;height:34px;border-radius:50%;font:700 11px/1 "TildaSans",Arial,sans-serif;cursor:pointer;transition:.2s}
+
+.ks7-step:hover{border-color:var(--g);color:var(--g)}
+
+.ks7-step.on{background:var(--g);border-color:var(--g);color:#fff}
+
+.ks7-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:0}
+
+.ks7-track{height:2px;background:#e6eae8;flex:1;overflow:hidden}
+
+.ks7-fill{height:100%;background:var(--g);width:11.111%;transition:width .4s}
+
+.ks7-arrows{display:flex;gap:8px}
+
+.ks7-arrow{width:42px;height:42px;border:1px solid #dce3df;border-radius:50%;background:#fff;color:var(--g);font:400 20px/1 Arial;cursor:pointer;transition:.2s}
+
+.ks7-arrow:hover{border-color:var(--g)}
+
+.ks7-vis{position:relative;background:#f4f7f5;overflow:hidden}
+
+.ks7-scene{padding:0!important}
+
+.ks7-scene img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
+
+#ks7 .ks7-scene:after{content:"";display:block!important;position:absolute;inset:0;left:0;right:0;bottom:0;height:auto;background:linear-gradient(180deg,rgba(9,96,65,.01),rgba(9,96,65,.055));filter:none;pointer-events:none}
+
+
+
+.ks7-scene{position:absolute;inset:0;padding:50px;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(16px) scale(.99);transition:opacity .78s ease,transform .9s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+
+.ks7-scene.on{opacity:1;transform:none}
+
+.ks7-scene svg{width:100%;height:100%;max-width:560px;max-height:450px}
+
+.ks7-a{fill:none;stroke:var(--g);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+
+
+@media(max-width:900px){
+
+  #ks7{padding:76px 0 64px}
+
+  .ks7-w{width:min(100% - 34px,620px)}
+
+  .ks7-label{font-size:11px;margin-bottom:20px}
+
+  .ks7-head{display:block;margin-bottom:26px}
+
+  .ks7-head h2{font-size:43px;line-height:1.01;margin-bottom:18px}
+
+  .ks7-head p{font-size:16px;line-height:1.5}
+
+  .ks7-card{height:auto;min-height:0;grid-template-columns:1fr;grid-template-rows:225px auto}
+
+  .ks7-vis{grid-row:1;touch-action:pan-y}
+
+  .ks7-copy{grid-row:2;padding:22px 20px 24px;display:block;min-height:255px}
+
+  .ks7-scene{padding:20px 26px}
+
+  .ks7-count{display:none}
+
+  .ks7-title{font-size:29px;line-height:1.04;margin:0 0 9px}
+
+  .ks7-text{font-size:14px;line-height:1.5;min-height:46px;margin-bottom:6px}
+
+  .ks7-controls{margin-top:20px;padding-top:0}
+
+  .ks7-nav{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:4px;margin:0 0 13px}
+
+  .ks7-step{width:28px;height:28px;min-width:28px;flex:0 0 28px;aspect-ratio:1/1;border-radius:50%;font-size:9px}
+
+  .ks7-bottom{gap:10px}
+
+  .ks7-arrow{width:36px;height:36px;flex:0 0 36px;font-size:18px}
+
+}
+
+@media(max-width:520px){
+
+  #ks7{padding:64px 0 56px}.ks7-w{width:calc(100% - 28px)}
+
+  .ks7-head h2{font-size:40px}
+
+  .ks7-card{grid-template-rows:205px auto}
+
+  .ks7-copy{padding:20px 18px 22px;min-height:250px}
+
+  .ks7-scene{padding:18px 22px}
+
+  .ks7-title{font-size:27px}
+
+  .ks7-step{width:27px;height:27px;min-width:27px;flex-basis:27px}
+
+}
+
+@media(prefers-reduced-motion:reduce){.ks7-scene,.ks7-fill{transition:none}}
+
+
+
+/* D5 - псевдо-3D SVG, без внешних изображений */
+
+.ks7-scene svg{filter:drop-shadow(0 16px 18px rgba(28,58,46,.10))}
+
+.ks7-a{display:none}
+
+.k3-ground{fill:#dfe9e4}.k3-grass{fill:#c8ddd3}.k3-concrete{fill:#cbd3d0}.k3-soil{fill:#cdbb9f}
+
+.k3-wood{fill:#c9a274}.k3-wood2{fill:#b98c5e}.k3-wood3{fill:#e2c9a8}.k3-roof{fill:#315d50}
+
+.k3-glass{fill:#d8e9e5;stroke:#8db3a7;stroke-width:1.5}.k3-green{fill:#096041}.k3-green2{fill:#7fa99a}
+
+.k3-dark{fill:#35544a}.k3-white{fill:#fff}
+
+.k3-line{fill:none;stroke:#096041;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.k3-line2{fill:none;stroke:#789b8e;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+.k3-thin{fill:none;stroke:#a6bdb4;stroke-width:1}
+
+.k3-wire{fill:none;stroke:#d2a94e;stroke-width:4;stroke-linecap:round}
+
+.k3-water{fill:none;stroke:#79aab4;stroke-width:4;stroke-linecap:round}
+
+.k3-heat{fill:none;stroke:#b56e55;stroke-width:4;stroke-linecap:round}
+
+
+
+/* D6 - более объёмная изометрическая подача */
+
+.ks7-vis{
+
+  background:
+
+    radial-gradient(circle at 70% 35%,rgba(255,255,255,.96) 0 17%,rgba(244,247,245,.86) 48%,#eef3f0 100%);
+
+}
+
+.ks7-scene:after{
+
+  content:"";
+
+  position:absolute;
+
+  left:12%;right:8%;bottom:8%;
+
+  height:16%;
+
+  background:radial-gradient(ellipse at center,rgba(31,59,48,.12),rgba(31,59,48,0) 70%);
+
+  filter:blur(13px);
+
+  pointer-events:none;
+
+}
+
+.ks7-scene svg{position:relative;z-index:1}
+
+.k3-ground{filter:drop-shadow(0 12px 9px rgba(34,61,50,.12))}
+
+.k3-wood,.k3-wood2,.k3-wood3,.k3-roof,.k3-concrete{stroke:rgba(50,78,67,.16);stroke-width:.7}
+
+.k3-tree-trunk{fill:#94714f}
+
+.k3-tree-a{fill:#416f5b}
+
+.k3-tree-b{fill:#5e8876}
+
+.k3-rock{fill:#9aa69f}
+
+.k3-mark{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:7 5;opacity:.95}
+
+
+
+
+
+@media(max-width:900px){
+
+  #ks7 .ks7-count{margin-bottom:0}
+
+  #ks7 .ks7-controls{margin-top:20px}
+
+}
+
+
+
+
+
+/* D8 - clean architectural diorama, 100% code */
+
+.ks7-vis{
+
+  background:
+
+    radial-gradient(circle at 54% 18%,rgba(255,255,255,.98),rgba(250,248,243,.93) 45%,rgba(239,242,239,.96) 100%) !important;
+
+}
+
+.ks7-scene svg{width:96%;height:96%;max-width:none;max-height:none;filter:none!important}
+
+.ks7-scene:after{display:none!important}
+
+.d8-shadow{fill:rgba(29,48,40,.10);filter:url(#d8blur)}
+
+.d8-soil-top{fill:url(#d8soil)}
+
+.d8-soil-side{fill:url(#d8side)}
+
+.d8-grass{fill:url(#d8grass)}
+
+.d8-darkgrass{fill:#628164}
+
+.d8-tree1{fill:#345d45}.d8-tree2{fill:#52785a}.d8-tree3{fill:#78956c}
+
+.d8-trunk{fill:#8c6948}.d8-rock{fill:#929a91}.d8-rock2{fill:#b0b4aa}
+
+.d8-wood1{fill:#d8b07e}.d8-wood2{fill:#b98151}.d8-wood3{fill:#e8cda8}
+
+.d8-roof{fill:url(#d8roof)}.d8-glass{fill:#c9ddd8;stroke:#6e9388;stroke-width:1.4}
+
+.d8-line{fill:none;stroke:#096041;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.d8-fine{fill:none;stroke:#718b81;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+
+
+
+
+
+/* DUBL S FOTO 3 - photo area follows source 16:9 ratio */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-card{
+
+    align-items:center;
+
+  }
+
+  #ks7 .ks7-vis{
+
+    aspect-ratio:16 / 9;
+
+    align-self:center;
+
+    min-height:0;
+
+  }
+
+  #ks7 .ks7-scene{
+
+    position:absolute;
+
+    inset:0;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+
+  }
+
+}
+
+
+
+
+
+/* DUBL S FOTO 4 - compact card, both sides aligned to photo */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-card{
+
+    min-height:0!important;
+
+    height:auto!important;
+
+    grid-template-columns:1fr 1.18fr!important;
+
+    align-items:stretch!important;
+
+  }
+
+  #ks7 .ks7-info{
+
+    min-height:0!important;
+
+    padding:52px 56px!important;
+
+    justify-content:center!important;
+
+  }
+
+  #ks7 .ks7-vis{
+
+    min-height:0!important;
+
+    height:auto!important;
+
+    aspect-ratio:16 / 9!important;
+
+    align-self:stretch!important;
+
+  }
+
+  #ks7 .ks7-scene{
+
+    position:absolute!important;
+
+    inset:0!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    width:100%!important;
+
+    height:100%!important;
+
+    object-fit:contain!important;
+
+    object-position:center!important;
+
+  }
+
+}
+
+
+
+
+
+/* DUBL S FOTO 8 - stable photo scenes, equal frame, right breathing room */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-card{
+
+    grid-template-columns:1fr 1fr!important;
+
+    height:520px!important;
+
+    min-height:520px!important;
+
+    align-items:stretch!important;
+
+  }
+
+  #ks7 .ks7-copy{
+
+    padding:42px 44px 34px!important;
+
+  }
+
+  #ks7 .ks7-title{
+
+    font-size:clamp(29px,2.75vw,42px)!important;
+
+    line-height:1.06!important;
+
+    letter-spacing:-.035em!important;
+
+  }
+
+  #ks7 .ks7-vis{
+
+    position:relative!important;
+
+    height:100%!important;
+
+    aspect-ratio:auto!important;
+
+    padding:44px!important;
+
+    background:#f4f7f5!important;
+
+    overflow:hidden!important;
+
+  }
+
+  #ks7 .ks7-scene{
+
+    position:absolute!important;
+
+    inset:44px!important;
+
+    width:auto!important;
+
+    height:auto!important;
+
+    padding:0!important;
+
+    overflow:hidden!important;
+
+    border-radius:0!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    position:absolute!important;
+
+    inset:0!important;
+
+    width:100%!important;
+
+    height:100%!important;
+
+    object-fit:contain!important;
+
+    object-position:center!important;
+
+    display:block!important;
+
+  }
+
+}
+
+@media (max-width:900px){
+
+  #ks7 .ks7-title{font-size:26px!important;line-height:1.06!important}
+
+  #ks7 .ks7-scene img{object-fit:cover!important}
+
+}
+
+@media (max-width:520px){
+
+  #ks7 .ks7-title{font-size:25px!important}
+
+}
+
+
+
+
+
+/* D9 DARK - dark graphite/green version */
+
+#ks7{
+
+  --t:#F4F6F5!important;
+
+  --m:#AAB5B0!important;
+
+  --line:#2A342F!important;
+
+  --bg:#111714!important;
+
+  background:#111714!important;
+
+  color:#F4F6F5!important;
+
+}
+
+#ks7 .ks7-card{
+
+  background:#171E1A!important;
+
+  border-color:#2A342F!important;
+
+  box-shadow:0 24px 70px rgba(0,0,0,.22)!important;
+
+}
+
+#ks7 .ks7-vis{
+
+  background:#131A16!important;
+
+}
+
+#ks7 .ks7-title,
+
+#ks7 .ks7-head h2{
+
+  color:#F4F6F5!important;
+
+}
+
+#ks7 .ks7-head h2 span,
+
+#ks7 .ks7-label,
+
+#ks7 .ks7-count{
+
+  color:#4D9B79!important;
+
+}
+
+#ks7 .ks7-head p,
+
+#ks7 .ks7-text{
+
+  color:#AAB5B0!important;
+
+}
+
+#ks7 .ks7-step{
+
+  background:#171E1A!important;
+
+  border-color:#36433D!important;
+
+  color:#AAB5B0!important;
+
+}
+
+#ks7 .ks7-step:hover{
+
+  border-color:#4D9B79!important;
+
+  color:#DCE9E3!important;
+
+}
+
+#ks7 .ks7-step.on{
+
+  background:#096041!important;
+
+  border-color:#096041!important;
+
+  color:#fff!important;
+
+}
+
+#ks7 .ks7-track{
+
+  background:#303B36!important;
+
+}
+
+#ks7 .ks7-arrow{
+
+  background:#171E1A!important;
+
+  border-color:#36433D!important;
+
+  color:#DCE9E3!important;
+
+}
+
+#ks7 .ks7-arrow:hover{
+
+  border-color:#4D9B79!important;
+
+}
+
+
+
+
+
+/* D10 DARK - larger photos + heading raised + slower transitions */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-head{
+
+    transform:translateY(-24px)!important;
+
+    margin-bottom:28px!important;
+
+  }
+
+
+
+  /* Give the photo more of the card while keeping equal visual padding */
+
+  #ks7 .ks7-vis{
+
+    padding:24px 28px!important;
+
+  }
+
+  #ks7 .ks7-scene{
+
+    inset:24px 28px!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    width:100%!important;
+
+    height:100%!important;
+
+    object-fit:contain!important;
+
+    object-position:center!important;
+
+  }
+
+}
+
+
+
+
+
+/* D11 DARK - header up, card copy centered, photos fill frame, soft corners */
+
+@media (min-width:901px){
+
+  /* Raise only the main section heading area */
+
+  #ks7 .ks7-head{
+
+    transform:translateY(-58px)!important;
+
+    margin-bottom:-6px!important;
+
+  }
+
+
+
+  /* Return card copy to visual vertical center */
+
+  #ks7 .ks7-copy{
+
+    display:flex!important;
+
+    flex-direction:column!important;
+
+    justify-content:center!important;
+
+    padding:34px 44px!important;
+
+  }
+
+
+
+  /* Photo should fill its available frame - no letterbox fields */
+
+  #ks7 .ks7-vis{
+
+    padding:28px!important;
+
+  }
+
+  #ks7 .ks7-scene{
+
+    inset:28px!important;
+
+    border-radius:12px!important;
+
+    overflow:hidden!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    width:100%!important;
+
+    height:100%!important;
+
+    object-fit:cover!important;
+
+    object-position:center!important;
+
+    border-radius:12px!important;
+
+  }
+
+}
+
+@media (max-width:900px){
+
+  #ks7 .ks7-scene{
+
+    border-radius:10px!important;
+
+    overflow:hidden!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    border-radius:10px!important;
+
+  }
+
+}
+
+
+
+
+
+/* D12 DARK - unified card background under copy and photo */
+
+#ks7 .ks7-card,
+
+#ks7 .ks7-copy,
+
+#ks7 .ks7-vis{
+
+  background:#171E1A!important;
+
+}
+
+
+
+
+
+/* D13 DARK - header typography matched to Owners Reviews reference */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-head{
+
+    grid-template-columns:1.35fr .65fr!important;
+
+    gap:70px!important;
+
+    align-items:end!important;
+
+  }
+
+  #ks7 .ks7-head h2{
+
+    font-size:clamp(56px,5.25vw,82px)!important;
+
+    line-height:1.02!important;
+
+    letter-spacing:-.055em!important;
+
+    font-weight:700!important;
+
+    max-width:900px!important;
+
+  }
+
+  #ks7 .ks7-head p{
+
+    font-size:20px!important;
+
+    line-height:1.75!important;
+
+    font-weight:400!important;
+
+    max-width:500px!important;
+
+  }
+
+  #ks7 .ks7-label{
+
+    font-size:14px!important;
+
+    line-height:1!important;
+
+    letter-spacing:.24em!important;
+
+    font-weight:700!important;
+
+    margin-bottom:42px!important;
+
+  }
+
+}
+
+
+
+
+
+/* D14 DARK - header geometry matched to the supplied Owners Reviews reference */
+
+@media (min-width:901px){
+
+  #ks7{
+
+    padding-top:96px!important;
+
+  }
+
+  #ks7 .ks7-w{
+
+    width:min(1200px,calc(100% - 64px))!important;
+
+  }
+
+
+
+  /* Reference: eyebrow above title, left column \~2/3, copy on right */
+
+  #ks7 .ks7-label{
+
+    font-size:15px!important;
+
+    line-height:1!important;
+
+    letter-spacing:.22em!important;
+
+    font-weight:700!important;
+
+    margin:0 0 52px!important;
+
+  }
+
+  #ks7 .ks7-head{
+
+    display:grid!important;
+
+    grid-template-columns:minmax(0,1.78fr) minmax(360px,.82fr)!important;
+
+    column-gap:96px!important;
+
+    align-items:start!important;
+
+    transform:none!important;
+
+    margin:0 0 72px!important;
+
+  }
+
+  #ks7 .ks7-head h2{
+
+    font-size:clamp(62px,5.55vw,86px)!important;
+
+    line-height:.98!important;
+
+    letter-spacing:-.052em!important;
+
+    font-weight:700!important;
+
+    margin:0!important;
+
+    max-width:none!important;
+
+  }
+
+  #ks7 .ks7-head p{
+
+    font-size:21px!important;
+
+    line-height:1.72!important;
+
+    font-weight:400!important;
+
+    max-width:490px!important;
+
+    margin:6px 0 0!important;
+
+  }
+
+}
+
+
+
+
+
+/* D15 DARK - photo frame reduced by \~15%, proportions preserved */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-scene{
+
+    inset:58px!important;
+
+    border-radius:12px!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    width:100%!important;
+
+    height:100%!important;
+
+    object-fit:contain!important;
+
+    object-position:center!important;
+
+    border-radius:12px!important;
+
+  }
+
+}
+
+
+
+
+
+/* D16 - header proportions aligned with the approved Owners section */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-head{
+
+    align-items:flex-start!important;
+
+  }
+
+  #ks7 .ks7-head h2{
+
+    font-size:clamp(62px,5.55vw,86px)!important;
+
+    line-height:.98!important;
+
+    letter-spacing:-.052em!important;
+
+  }
+
+  #ks7 .ks7-head p{
+
+    margin-top:18px!important;
+
+    align-self:flex-start!important;
+
+  }
+
+}
+
+
+
+
+
+/* D18 - photos +10%, rounded corners, no image distortion */
+
+@media (min-width:901px){
+
+  #ks7 .ks7-scene{
+
+    inset:52px!important;
+
+    border-radius:12px!important;
+
+    overflow:hidden!important;
+
+  }
+
+  #ks7 .ks7-scene img{
+
+    width:100%!important;
+
+    height:100%!important;
+
+    object-fit:contain!important;
+
+    object-position:center!important;
+
+    border-radius:12px!important;
+
+  }
+
+}
+
+@media (max-width:900px){
+
+  #ks7 .ks7-scene,
+
+  #ks7 .ks7-scene img{
+
+    border-radius:10px!important;
+
+    overflow:hidden!important;
+
+  }
+
+}
+
+
+
+
+
+/* D19 - photo area uses exactly the same background as the card */
+
+#ks7 .ks7-vis,
+
+#ks7 .ks7-scene{
+
+  background:#171E1A!important;
+
+}
+
+
+
+
+
+/* D20 - uniform card background, photo corners 10px */
+
+#ks7 .ks7-vis,
+
+#ks7 .ks7-scene{
+
+  background:transparent!important;
+
+}
+
+#ks7 .ks7-scene{
+
+  border-radius:10px!important;
+
+  overflow:hidden!important;
+
+}
+
+#ks7 .ks7-scene img{
+
+  border-radius:10px!important;
+
+  display:block!important;
+
+}
+
+
+
+</style>
+
+
+
+\
+<style>
+/* D21 - approved KONTUR header geometry from #kontur-visit */
+@media (min-width:901px){
+  #ks7{
+    padding-top:110px!important;
+  }
+
+  #ks7 .ks7-w{
+    width:min(1200px,calc(100% - 64px))!important;
+    margin:0 auto!important;
+  }
+
+  #ks7 .ks7-label{
+    font-size:14px!important;
+    line-height:1!important;
+    letter-spacing:.20em!important;
+    font-weight:700!important;
+    margin:0 0 28px!important;
+  }
+
+  #ks7 .ks7-head{
+    display:grid!important;
+    grid-template-columns:1.35fr .65fr!important;
+    gap:70px!important;
+    align-items:end!important;
+    transform:none!important;
+    margin:0 0 52px!important;
+  }
+
+  #ks7 .ks7-head h2{
+    font-size:clamp(46px,5.1vw,74px)!important;
+    line-height:.98!important;
+    letter-spacing:-.045em!important;
+    font-weight:600!important;
+    margin:0!important;
+    max-width:none!important;
+  }
+
+  #ks7 .ks7-head p{
+    font-size:19px!important;
+    line-height:1.55!important;
+    font-weight:400!important;
+    max-width:470px!important;
+    margin:0 0 4px!important;
+    align-self:auto!important;
+  }
+}
+</style> <style>
+/* D23 CLEAN - approved KONTUR header + clean photo presentation */
+@media (min-width:901px){
+  #ks7{padding-top:110px!important}
+
+  #ks7 .ks7-w{
+    width:min(1200px,calc(100% - 64px))!important;
+    margin:0 auto!important;
+  }
+
+  #ks7 .ks7-label{
+    font-size:14px!important;
+    line-height:1!important;
+    letter-spacing:.20em!important;
+    font-weight:700!important;
+    margin:0 0 28px!important;
+  }
+
+  #ks7 .ks7-head{
+    display:grid!important;
+    grid-template-columns:1.35fr .65fr!important;
+    gap:70px!important;
+    align-items:end!important;
+    transform:none!important;
+    margin:0 0 52px!important;
+  }
+
+  #ks7 .ks7-head h2{
+    font-size:clamp(46px,5.1vw,74px)!important;
+    line-height:.98!important;
+    letter-spacing:-.045em!important;
+    font-weight:600!important;
+    margin:0!important;
+    max-width:none!important;
+  }
+
+  #ks7 .ks7-head p{
+    font-size:19px!important;
+    line-height:1.55!important;
+    font-weight:400!important;
+    max-width:470px!important;
+    margin:0 0 4px!important;
+  }
+
+  /* keep the existing photo size/position, but remove visible letterbox field */
+  #ks7 .ks7-vis{
+    background:#171E1A!important;
+  }
+
+  #ks7 .ks7-scene{
+    inset:52px!important;
+    padding:0!important;
+    background:transparent!important;
+    border-radius:10px!important;
+    overflow:hidden!important;
+  }
+
+  #ks7 .ks7-scene:after{
+    display:none!important;
+    content:none!important;
+  }
+
+  #ks7 .ks7-scene img{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+    border-radius:10px!important;
+    clip-path:inset(0 round 10px)!important;
+    display:block!important;
+  }
+}
+
+@media (max-width:900px){
+  #ks7 .ks7-scene{
+    border-radius:10px!important;
+    overflow:hidden!important;
+    background:transparent!important;
+  }
+  #ks7 .ks7-scene:after{
+    display:none!important;
+    content:none!important;
+  }
+  #ks7 .ks7-scene img{
+    object-fit:cover!important;
+    border-radius:10px!important;
+    clip-path:inset(0 round 10px)!important;
+    display:block!important;
+  }
+}
+</style> <style>
+/* D24 - ONLY header typography and right text */
+@media (min-width:901px){
+  #ks7 .ks7-head{
+    display:grid!important;
+    grid-template-columns:1.35fr .65fr!important;
+    gap:70px!important;
+    align-items:end!important;
+    margin-bottom:52px!important;
+    transform:none!important;
+  }
+
+  #ks7 .ks7-head h2{
+    font-size:clamp(46px,5.1vw,74px)!important;
+    line-height:.98!important;
+    letter-spacing:-.045em!important;
+    font-weight:600!important;
+    margin:0!important;
+    max-width:none!important;
+  }
+
+  #ks7 .ks7-head p{
+    font-size:19px!important;
+    line-height:1.55!important;
+    font-weight:400!important;
+    max-width:470px!important;
+    margin:0 0 4px!important;
+    align-self:auto!important;
+  }
+}
+</style> <style>
+/* D25 - ONLY header, exact dimensions from supplied reference */
+@media (min-width:901px){
+  #ks7 .ks7-label{
+    font-size:13px!important;
+    line-height:1!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+    margin-bottom:30px!important;
+  }
+
+  #ks7 .ks7-head{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.45fr) minmax(330px,.72fr)!important;
+    gap:54px!important;
+    align-items:end!important;
+    margin-bottom:48px!important;
+    transform:none!important;
+  }
+
+  #ks7 .ks7-head h2{
+    margin:0!important;
+    font-size:clamp(46px,4.65vw,68px)!important;
+    line-height:.98!important;
+    letter-spacing:-.045em!important;
+    font-weight:600!important;
+  }
+
+  #ks7 .ks7-head p{
+    margin:0 0 5px!important;
+    font-size:19px!important;
+    line-height:1.55!important;
+    font-weight:400!important;
+    max-width:510px!important;
+  }
+}
+</style> <style>
+/* D26 - only align main heading top with right-side text top */
+@media (min-width:901px){
+  #ks7 .ks7-head{
+    align-items:start!important;
+  }
+  #ks7 .ks7-head p{
+    margin-top:0!important;
+  }
+}
+</style> <style>
+/* D27 - only raise the main heading slightly */
+@media (min-width:901px){
+  #ks7 .ks7-head h2{
+    transform:translateY(-6px)!important;
+  }
+}
+</style> <style>
+/* D28 - heading another 6px higher, 12px total */
+@media (min-width:901px){
+  #ks7 .ks7-head h2{
+    transform:translateY(-12px)!important;
+  }
+}
+</style> <style>
+/* D29 - DESKTOP ONLY: landscape photos, mild crop */
+@media (min-width:901px){
+  #ks7 .ks7-vis{
+    position:relative!important;
+  }
+
+  #ks7 .ks7-scene{
+    top:62px!important;
+    right:36px!important;
+    bottom:62px!important;
+    left:36px!important;
+    width:auto!important;
+    height:auto!important;
+    aspect-ratio:auto!important;
+  }
+
+  #ks7 .ks7-scene img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+}
+</style> <style>
+/* D30 - DESKTOP ONLY: a little more landscape + remove transition flicker */
+@media (min-width:901px){
+  #ks7 .ks7-scene{
+    top:76px!important;
+    right:32px!important;
+    bottom:76px!important;
+    left:32px!important;
+  }
+
+  /* Keep scenes in the same compositing layer to avoid flashing */
+  #ks7 .ks7-scene{
+    transform:none!important;
+    will-change:opacity!important;
+    backface-visibility:hidden!important;
+    -webkit-backface-visibility:hidden!important;
+    transition:opacity .65s ease!important;
+  }
+
+  #ks7 .ks7-scene:not(.on){
+    opacity:0!important;
+    visibility:visible!important;
+    pointer-events:none!important;
+  }
+
+  #ks7 .ks7-scene.on{
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  #ks7 .ks7-scene img{
+    transform:translateZ(0)!important;
+    backface-visibility:hidden!important;
+    -webkit-backface-visibility:hidden!important;
+  }
+}
+</style> <style>
+/* D31 - DESKTOP ONLY: remove bottom flash line */
+@media (min-width:901px){
+  #ks7 .ks7-scene{
+    overflow:hidden!important;
+    isolation:isolate!important;
+    background:#171E1A!important;
+  }
+
+  #ks7 .ks7-scene img{
+    position:absolute!important;
+    top:-1px!important;
+    left:-1px!important;
+    width:calc(100% + 2px)!important;
+    height:calc(100% + 2px)!important;
+    max-width:none!important;
+    display:block!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+}
+</style> <style>
+/* D32 - DESKTOP ONLY: slightly more landscape */
+@media (min-width:901px){
+  #ks7 .ks7-scene{
+    top:84px!important;
+    bottom:84px!important;
+    right:30px!important;
+    left:30px!important;
+  }
+}
+</style> <style>
+/* D33 - DESKTOP ONLY: final slightly wider landscape photo ratio */
+@media (min-width:901px){
+  #ks7 .ks7-scene{
+    top:92px!important;
+    bottom:92px!important;
+    right:28px!important;
+    left:28px!important;
+  }
+}
+</style> <style>
+/* D35 - DESKTOP ONLY: reduce outer card height, keep D33 photo size/ratio unchanged */
+@media (min-width:901px){
+  #ks7 .ks7-card{
+    min-height:0!important;
+    height:510px!important;
+  }
+
+  /* D33 photo geometry stays fixed */
+  #ks7 .ks7-scene{
+    top:92px!important;
+    bottom:92px!important;
+    right:28px!important;
+    left:28px!important;
+  }
+}
+</style> <style>
+/* D36 - DESKTOP ONLY
+   1) outer card ~10% lower
+   2) move photo column slightly toward arrows
+   3) create more air on the right
+   Photo itself keeps the approved D33 treatment.
+*/
+@media (min-width:901px){
+  #ks7 .ks7-card{
+    min-height:0!important;
+    height:459px!important; /* 510px - 10% */
+  }
+
+  #ks7 .ks7-grid{
+    grid-template-columns:1fr 1fr!important;
+  }
+
+  #ks7 .ks7-vis{
+    transform:translateX(-22px)!important;
+    width:calc(100% - 22px)!important;
+  }
+
+  #ks7 .ks7-scene{
+    top:92px!important;
+    bottom:92px!important;
+    left:28px!important;
+    right:28px!important;
+  }
+}
+</style> <style>
+/* D37 - DESKTOP ONLY: enlarge only the photo by 15% */
+@media (min-width:901px){
+  #ks7 .ks7-scene{
+    top:64px!important;
+    bottom:64px!important;
+    left:8px!important;
+    right:8px!important;
+  }
+}
+</style> <style>
+/* D39 - DESKTOP ONLY: move photo RIGHT toward the outer frame.
+   Photo size stays exactly as in D37. */
+@media (min-width:901px){
+  #ks7 .ks7-vis{
+    transform:translateX(-2px)!important;
+    width:calc(100% - 22px)!important;
+  }
+
+  #ks7 .ks7-scene{
+    top:64px!important;
+    bottom:64px!important;
+    left:8px!important;
+    right:8px!important;
+  }
+}
+</style> <style>
+/* D40 - DESKTOP ONLY: 6px left from D39, nothing else changed */
+@media (min-width:901px){
+  #ks7 .ks7-vis{
+    transform:translateX(-8px)!important;
+  }
+}
+</style> <style>
+/* D41 - MOBILE ONLY: photo joins the text card without bottom rounding */
+@media (max-width:900px){
+  #ks7 .ks7-scene,
+  #ks7 .ks7-scene img{
+    border-radius:12px 12px 0 0!important;
+  }
+}
+</style> <style>
+/* D42 - MOBILE ONLY: force square bottom corners on every photo layer */
+@media (max-width:900px){
+  #ks7 .ks7-vis{
+    border-radius:12px 12px 0 0!important;
+    overflow:hidden!important;
+  }
+
+  #ks7 .ks7-scene,
+  #ks7 .ks7-scene.on{
+    border-radius:12px 12px 0 0!important;
+    clip-path:inset(0 round 12px 12px 0 0)!important;
+    overflow:hidden!important;
+  }
+
+  #ks7 .ks7-scene img{
+    border-radius:12px 12px 0 0!important;
+    clip-path:inset(0 round 12px 12px 0 0)!important;
+  }
+}
+</style> <style>
+/* D44 - center arrow glyphs inside circular buttons */
+#ks7 .ks7-arrow{
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  line-height:1!important;
+  text-align:center!important;
+  text-indent:0!important;
+}
+</style> <style>
+/* D45 - precise arrow centering: redraw arrow icon with CSS */
+#ks7 .ks7-arrow{
+  position:relative!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:0!important;
+  line-height:0!important;
+  text-indent:-9999px!important;
+  overflow:hidden!important;
+}
+
+#ks7 .ks7-arrow::before{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:18px!important;
+  height:1px!important;
+  background:currentColor!important;
+  transform:translate(-50%,-50%)!important;
+}
+
+#ks7 .ks7-arrow::after{
+  content:""!important;
+  position:absolute!important;
+  top:50%!important;
+  width:7px!important;
+  height:7px!important;
+  border-top:1px solid currentColor!important;
+  border-right:1px solid currentColor!important;
+}
+
+/* first button = left */
+#ks7 .ks7-arrow:first-of-type::after{
+  left:50%!important;
+  transform:translate(-9px,-50%) rotate(-135deg)!important;
+}
+
+/* second button = right */
+#ks7 .ks7-arrow:last-of-type::after{
+  left:50%!important;
+  transform:translate(1px,-50%) rotate(45deg)!important;
+}
+</style> <style>
+/* D48 - reserve text height for the longest stages to prevent layout jumps */
+@media (min-width:901px){
+  #ks7 .ks7-text{
+    min-height:82px!important;
+  }
+}
+@media (max-width:900px){
+  #ks7 .ks7-text{
+    min-height:66px!important;
+  }
+}
+@media (max-width:520px){
+  #ks7 .ks7-text{
+    min-height:66px!important;
+  }
+}
+</style> <style>
+/* D49 - reserve space based on the longest description (stage 04) */
+@media (min-width:901px){
+  #ks7 .ks7-text{
+    min-height:108px!important;
+  }
+}
+@media (max-width:900px){
+  #ks7 .ks7-text{
+    min-height:88px!important;
+  }
+}
+@media (max-width:520px){
+  #ks7 .ks7-text{
+    min-height:88px!important;
+  }
+}
+</style> <style>
+/* D50 / Дубль 1 - only highlight construction timeline in header */
+#ks7 .ks7-time-accent{
+  color:#4D9B79;
+  font-weight:600;
+}
+</style> <style>
+/* D51 - desktop only: right header text 6px lower */
+@media (min-width:901px){
+  #ks7 .ks7-head p{
+    transform:translateY(6px)!important;
+  }
+}
+</style> <style>
+/* D52 - DESKTOP ONLY: +14px air between header and card, nothing else */
+@media (min-width:901px){
+  #ks7 .ks7-head{
+    margin-bottom:62px!important;
+  }
+}
+</style> <style>
+/* D53 - DESKTOP ONLY: another +10px between header and card, nothing else */
+@media (min-width:901px){
+  #ks7 .ks7-head{
+    margin-bottom:72px!important;
+  }
+}
+</style> <section id="ks7"> <div class="ks7-w"> <div class="ks7-label">КАК МЫ СТРОИМ</div> <div class="ks7-head"> <h2>Этапы строительства</h2> <p>В среднем <span class="ks7-time-accent">около 4 месяцев</span> от начала проектирования до готового тёплого контура.</p> </div> <div class="ks7-card"> <div class="ks7-copy"> <div class="ks7-count"><span data-count>01</span> / 09</div> <div> <h3 class="ks7-title" data-title>Исследование участка</h3> <p class="ks7-text" data-text>Изучаем особенности участка, рельеф и грунты. Проводим необходимые изыскания перед проектированием.</p> </div> <div class="ks7-controls"> <div class="ks7-nav"></div> <div class="ks7-bottom"> <div class="ks7-track"><div class="ks7-fill"></div></div> <div class="ks7-arrows"> <button class="ks7-arrow" data-prev aria-label="Предыдущий этап">←</button> <button class="ks7-arrow" data-next aria-label="Следующий этап">→</button> </div> </div> </div> </div> <div class="ks7-vis" aria-label="Графика этапа строительства"></div> </div> </div> </section> <script>
+
+(function(){
+
+var root=document.getElementById("ks7");if(!root)return;
+
+var D=[
+["Исследование участка","Изучаем особенности участка, рельеф и грунты. Проводим необходимые изыскания перед проектированием."],
+["Проектирование","Разрабатываем планировку, архитектуру и конструктив дома. Согласовываем фасады, внутренние стены и решения под будущие инженерные системы."],
+["Производство домокомплекта","После утверждения проекта запускаем производство домокомплекта из клеёного бруса. Средний срок изготовления - 1-1,5 месяца."],
+["Устройство фундамента","Параллельно с производством домокомплекта выполняем фундамент. Работы синхронизируем так, чтобы к готовности фундамента домокомплект был готов к монтажу."],
+["Сборка дома","Собираем домокомплект, несущие конструкции и кровлю. В среднем этап занимает 2-4 недели в зависимости от проекта и погодных условий."],
+["Тёплый контур","Устанавливаем окна и двери, выполняем наружную шлифовку и окраску. Дом становится закрытым и готовым к следующему этапу работ."],
+["Инженерные системы","Выполняем электрику, водоснабжение, канализацию, тёплые полы и другие инженерные системы согласно проекту."],
+["Отделочные работы","Выполняем внутреннюю отделку и доводим дом до согласованной комплектации."],
+["Сдача готового дома","Проверяем выполненные работы, передаём готовый дом и комплект документов заказчику."]
+];
+
+
+
+var IMG=[
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/1.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/2.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/3.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/4.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/5.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/6.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/7.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/8.webp",
+
+"https://raw.githubusercontent.com/davaygazu/kontur-images/main/etapy-stroitelstva/9.webp"
+
+];
+
+
+
+var vis=root.querySelector(".ks7-vis"),nav=root.querySelector(".ks7-nav"),title=root.querySelector("[data-title]"),text=root.querySelector("[data-text]"),counts=root.querySelectorAll("[data-count]"),fill=root.querySelector(".ks7-fill"),i=0,timer,userTouched=false;
+
+
+
+D.forEach(function(d,j){
+
+ var scene=document.createElement("div");
+
+ scene.className="ks7-scene"+(j===0?" on":"");
+
+ scene.innerHTML='<img src="'+IMG[j]+'" alt="'+D[j][0]+'" loading="'+(j===0?'eager':'lazy')+'">';
+
+ vis.appendChild(scene);
+
+
+
+ var b=document.createElement("button");
+
+ b.className="ks7-step"+(j===0?" on":"");
+
+ b.textContent=String(j+1).padStart(2,"0");
+
+ b.setAttribute("aria-label","Этап "+(j+1));
+
+ b.onclick=function(){userTouched=true;clearInterval(timer);show(j)};
+
+ nav.appendChild(b);
+
+});
+
+
+
+var scenes=vis.querySelectorAll(".ks7-scene"),steps=nav.querySelectorAll(".ks7-step");
+
+
+
+function show(n){
+
+ i=(n+9)%9;
+
+ scenes.forEach((x,j)=>x.classList.toggle("on",j===i));
+
+ steps.forEach((x,j)=>x.classList.toggle("on",j===i));
+
+ counts.forEach(x=>x.textContent=String(i+1).padStart(2,"0"));
+
+ title.textContent=D[i][0];
+
+ text.textContent=D[i][1];
+
+ fill.style.width=((i+1)/9*100)+"%";
+
+}
+
+
+
+root.querySelector("[data-prev]").onclick=function(){userTouched=true;clearInterval(timer);show(i-1)};
+
+root.querySelector("[data-next]").onclick=function(){userTouched=true;clearInterval(timer);show(i+1)};
+
+
+
+var swipeArea=root.querySelector(".ks7-card");
+
+var sx=0,sy=0;
+
+swipeArea.addEventListener("touchstart",function(e){
+
+ sx=e.changedTouches[0].clientX;
+
+ sy=e.changedTouches[0].clientY;
+
+},{passive:true});
+
+swipeArea.addEventListener("touchend",function(e){
+
+ var dx=e.changedTouches[0].clientX-sx;
+
+ var dy=e.changedTouches[0].clientY-sy;
+
+ if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)){
+
+   userTouched=true;
+
+   show(i+(dx<0?1:-1));
+
+ }
+
+},{passive:true});
+
+
+
+function startAuto(){
+
+ clearInterval(timer);
+
+ if(userTouched)return;
+
+ timer=setInterval(function(){
+
+   if(userTouched){clearInterval(timer);return}
+
+   show(i+1);
+
+ },4000);
+
+}
+
+
+
+var io=new IntersectionObserver(function(es){
+
+ es.forEach(function(e){
+
+   if(e.isIntersecting){startAuto()}else{clearInterval(timer)}
+
+ });
+
+},{threshold:.45});
+
+
+
+io.observe(root);
+
+})();
+
+</script>

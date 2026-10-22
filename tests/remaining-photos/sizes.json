@@ -1,0 +1,42 @@
+[
+  {
+    "name": "igora",
+    "source": "projects/populyarnye-proekty/igora/glavnaya.webp",
+    "original": 230014,
+    "mobile": 96200,
+    "dimensions": [
+      1080,
+      810
+    ]
+  },
+  {
+    "name": "leon",
+    "source": "projects/populyarnye-proekty/leon/glavnaya.webp",
+    "original": 210448,
+    "mobile": 85394,
+    "dimensions": [
+      1080,
+      810
+    ]
+  },
+  {
+    "name": "kvartsi",
+    "source": "projects/populyarnye-proekty/kvartsi/glavnaya.webp",
+    "original": 262418,
+    "mobile": 107048,
+    "dimensions": [
+      1080,
+      810
+    ]
+  },
+  {
+    "name": "stage-1",
+    "source": "etapy-stroitelstva/1.webp",
+    "original": 422726,
+    "mobile": 104778,
+    "dimensions": [
+      1080,
+      608
+    ]
+  }
+]
