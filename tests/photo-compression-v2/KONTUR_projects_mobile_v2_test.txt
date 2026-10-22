@@ -1,0 +1,1 @@
+<script src="https://cdn.jsdelivr.net/gh/davaygazu/kontur-images@5431b0c89979936d63d80cc2847fe398b08ce250/kontur-projects-webp-v2-test.js"></script>
