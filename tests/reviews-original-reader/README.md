@@ -7,3 +7,5 @@ The screenshot files are unchanged: no re-encoding, resizing, sharpening or AI p
 Files are still fetched only on opening an original. No additional network requests or Yandex widget. Existing text and source images unchanged. If the WebP source already contains compression artefacts, new PNG or lossless originals are needed to recover that detail.
 
 Verified in browser: desktop original 03 renders at 960x950px with 16px corners and vertical scrolling. At 390px iframe, Increase renders the same file at its 988px native width with horizontal overflow; Fit width returns to 358px; Close restores hidden modal state. Review data and sources match the previous oval-card version and all inline JavaScript parses.
+
+Unified label revision: all visible original-view buttons now say ПОСМОТРЕТЬ ОРИГИНАЛ, including paper review 01. No layout or behavior changes.
