@@ -1,0 +1,747 @@
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;color:#17211e;font-family:"TildaSans",Arial,sans-serif}
+.krev{--g:#096041;--t:#17211e;--m:#6d7773;--l:#e5e9e7;background:#FAFAF9;overflow:hidden}
+.krev-wrap{width:min(1200px,calc(100% - 64px));margin:0 auto;padding:112px 0 118px}
+.krev-label{font-size:13px;line-height:1;font-weight:700;letter-spacing:.16em;color:var(--g);margin-bottom:30px}
+.krev-head{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(330px,.72fr);gap:54px;align-items:end;margin-bottom:48px}
+.krev-head h2{margin:0;font-size:clamp(46px,4.65vw,68px);line-height:.98;letter-spacing:-.045em;font-weight:600}
+.krev-head-accent{color:var(--g)}
+.krev-head p{margin:0 0 5px;font-size:19px;line-height:1.55;color:var(--m);max-width:510px}
+
+.krev-stage{display:grid;grid-template-columns:minmax(0,760px) 340px;gap:58px;align-items:center;border-top:1px solid var(--l);padding-top:42px;min-height:520px}
+.krev-copy{align-self:center}
+.krev-quote-mark{width:42px;height:28px;margin-bottom:29px;color:var(--g)}
+.krev-quote{margin:0;max-width:760px;font-size:clamp(25px,2.25vw,34px);line-height:1.34;letter-spacing:-.022em;font-weight:400}
+.krev-meta{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-top:46px;padding-top:26px;border-top:1px solid var(--l);max-width:760px}
+.krev-person b{display:block;font-size:16px;line-height:1.2;font-weight:600;margin-bottom:7px}
+.krev-person span{display:block;font-size:13px;line-height:1.4;color:var(--m)}
+.krev-nav{display:flex;gap:7px;flex:0 0 auto}
+.krev-num{appearance:none;border:0;background:transparent;padding:6px 4px;font:600 12px/1 "TildaSans",Arial,sans-serif;color:#9ba29f;cursor:pointer;transition:color .25s ease}
+.krev-num.is-active{color:var(--g)}
+.krev-num:after{content:"";display:block;width:0;height:1px;background:var(--g);margin-top:7px;transition:width .25s ease}
+.krev-num.is-active:after{width:100%}
+
+.krev-doc-wrap{display:flex;justify-content:flex-end;perspective:1200px}
+.krev-doc{position:relative;width:310px;aspect-ratio:210/297;background:#fff;border:1px solid #e6e8e7;box-shadow:0 24px 60px rgba(23,33,30,.13);padding:38px 34px 30px;cursor:pointer;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;transform:rotate(1.1deg)}
+.krev-doc:hover{transform:rotate(0deg) translateY(-5px);box-shadow:0 30px 70px rgba(23,33,30,.17)}
+.krev-doc-brand{font-size:10px;font-weight:700;letter-spacing:.17em;color:var(--g);margin-bottom:35px}
+.krev-doc-title{font-size:17px;font-weight:600;margin-bottom:22px}
+.krev-doc-lines span{display:block;height:5px;border-radius:4px;background:#e9eceb;margin:0 0 8px}
+.krev-doc-lines span:nth-child(3n){width:88%}
+.krev-doc-lines span:nth-child(4n){width:94%}
+.krev-doc-lines span:nth-child(7n){width:72%}
+.krev-doc-sign{position:absolute;left:34px;right:34px;bottom:30px;border-top:1px solid #dfe3e1;padding-top:14px;display:flex;justify-content:space-between;align-items:end;color:#737d79;font-size:9px}
+.krev-signature{font-family:cursive;font-size:21px;color:#44504b;transform:rotate(-6deg)}
+.krev-open{position:absolute;right:-18px;bottom:58px;width:112px;height:38px;border:1px solid rgba(9,96,65,.18);border-radius:22px;background:rgba(255,255,255,.88);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--g);box-shadow:0 8px 24px rgba(23,33,30,.08);pointer-events:none}
+
+.krev-fade{animation:krevFade .45s ease both}
+@keyframes krevFade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+
+.krev-lightbox{position:fixed;inset:0;z-index:99999;background:rgba(15,20,18,.92);display:none;align-items:center;justify-content:center;padding:38px}
+.krev-lightbox.is-open{display:flex}
+.krev-lightbox-sheet{height:min(88vh,850px);aspect-ratio:210/297;background:#fff;box-shadow:0 30px 90px rgba(0,0,0,.4);padding:7vh 5vh;position:relative}
+.krev-lightbox-sheet .krev-doc-brand{font-size:12px}
+.krev-lightbox-sheet .krev-doc-title{font-size:23px}
+.krev-lightbox-sheet .krev-doc-lines span{height:7px;margin-bottom:11px}
+.krev-close{position:fixed;top:24px;right:24px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(45,48,46,.68);color:#fff;font-size:25px;font-weight:300;cursor:pointer;backdrop-filter:blur(9px)}
+.krev-note{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.08em;white-space:nowrap}
+
+@media(max-width:900px){
+  .krev-wrap{width:min(100% - 44px,760px);padding:78px 0 86px}
+  .krev-head{grid-template-columns:1fr;gap:28px;margin-bottom:38px}
+  .krev-stage{display:flex;flex-direction:column;gap:38px;padding-top:34px}
+  .krev-copy{width:100%;order:1}
+  .krev-doc-wrap{width:100%;justify-content:center;order:2}
+}
+@media(max-width:600px){
+  .krev-wrap{width:calc(100% - 32px);padding:68px 0 76px}
+  .krev-label{font-size:11px;margin-bottom:23px}
+  .krev-head{margin-bottom:30px;gap:22px}
+  .krev-head h2{font-size:43px;line-height:.98}
+  .krev-head p{font-size:16px;line-height:1.5}
+  .krev-stage{padding-top:26px;gap:30px;min-height:0}
+  .krev-doc{width:min(76vw,285px);padding:31px 28px 26px}
+  .krev-doc-brand{margin-bottom:28px}
+  .krev-doc-sign{left:28px;right:28px;bottom:26px}
+  .krev-open{right:-10px;bottom:44px;width:105px}
+  .krev-quote-mark{margin-bottom:22px}
+  .krev-quote{font-size:24px;line-height:1.38}
+  .krev-meta{margin-top:34px;padding-top:22px;align-items:flex-start;flex-direction:column;gap:24px}
+  .krev-nav{gap:13px}
+  .krev-lightbox{padding:60px 16px 45px}
+  .krev-lightbox-sheet{width:min(92vw,430px);height:auto;aspect-ratio:210/297;padding:38px 30px}
+  .krev-lightbox-sheet .krev-doc-title{font-size:18px}
+  .krev-close{top:14px;right:14px}
+}
+</style>
+
+<style>
+@media (min-width:901px){
+  #krev .krev-head h2{transform:translateY(-6px);}
+}
+</style>
+
+
+<style>
+#krev .krev-open{
+  white-space: nowrap !important;
+  width: auto !important;
+  min-width: max-content !important;
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+}
+</style>
+
+</head>
+<body>
+
+<section class="krev" id="krev">
+  <div class="krev-wrap">
+    <div class="krev-label">ОТЗЫВЫ ВЛАДЕЛЬЦЕВ</div>
+
+    <header class="krev-head">
+      <h2>Что говорят владельцы<br><span class="krev-head-accent">наших домов</span></h2>
+      <p>Мы можем рассказать о технологии и качестве строительства. Но важнее опыт людей, которые уже прошли этот путь вместе с нами.</p>
+    </header>
+
+    <div class="krev-stage">
+      <div class="krev-copy" id="krevCopy">
+        <svg class="krev-quote-mark" viewBox="0 0 44 30" aria-hidden="true">
+          <path fill="currentColor" d="M0 30V18.4C0 6.8 5.2 1.1 15.6 0v6.1c-5.2.8-7.9 3.6-8.1 8.4H16V30H0zm27.5 0V18.4C27.5 6.8 32.7 1.1 43.1 0v6.1c-5.2.8-7.9 3.6-8.1 8.4h8.5V30h-16z"/>
+        </svg>
+
+        <blockquote class="krev-quote" id="krevQuote">По ходу строительства конечно возникали рабочие вопросы, какие-то решения корректировали уже на месте. Для меня показатель не в том, чтобы вопросов вообще не было, а в том, как компания их решает. Здесь всегда были на связи и в итоге находили решение.</blockquote>
+
+        <div class="krev-meta">
+          <div class="krev-person">
+            <b id="krevName">Сергей Романович</b>
+            <span id="krevObject">АО «Интеграция и Развитие» · 2 дома и баня · Воскресенск</span>
+          </div>
+          <nav class="krev-nav" aria-label="Отзывы">
+            <button class="krev-num is-active" type="button" data-i="0">01</button>
+            <button class="krev-num" type="button" data-i="1">02</button>
+            <button class="krev-num" type="button" data-i="2">03</button>
+          </nav>
+        </div>
+      </div>
+
+      <div class="krev-doc-wrap">
+        <div class="krev-doc" id="krevDoc" role="button" tabindex="0" aria-label="Открыть оригинал отзыва">
+          <div class="krev-doc-brand">КОНТУР</div>
+          <div class="krev-doc-title">Отзыв о строительстве дома</div>
+          <div class="krev-doc-lines" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="krev-doc-sign"><span>Заказчик</span><span></span></div>
+          <div class="krev-open">ОТКРЫТЬ ОРИГИНАЛ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="krev-lightbox" id="krevLightbox" aria-hidden="true">
+  <button class="krev-close" id="krevClose" type="button" aria-label="Закрыть">×</button>
+  <div class="krev-lightbox-sheet">
+    <div class="krev-doc-brand">КОНТУР</div>
+    <div class="krev-doc-title">Отзыв о строительстве дома</div>
+    <div class="krev-doc-lines" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="krev-note">ЗДЕСЬ БУДЕТ СКАН ПОДПИСАННОГО ОТЗЫВА</div>
+</div>
+
+<script>
+(function(){
+  var reviews=[
+    {
+      quote:'По ходу строительства конечно возникали рабочие вопросы, какие-то решения корректировали уже на месте. Для меня показатель не в том, чтобы вопросов вообще не было, а в том, как компания их решает. Здесь всегда были на связи и в итоге находили решение.',
+      name:'Сергей Романович',
+      object:'АО «Интеграция и Развитие» · 2 дома и баня · Воскресенск',
+      original:'https://raw.githubusercontent.com/davaygazu/kontur-images/main/otzyvy/otziv1.webp'
+    },
+    {
+      quote:'Дом уютный и теплый, мама живет там постоянно и ей очень нравится. Мама вообще теперь в город возвращаться не хочет 😄 Сейчас приезжаем к маме и сами каждый раз радуемся, что решились на эту стройку.',
+      name:'Екатерина Аболенцева',
+      object:'Дом для мамы · КП «Бонифаций» · Московская область'
+    },
+    {
+      quote:'Дом уютный и теплый, мама живет там постоянно и ей очень нравится. Мама вообще теперь в город возвращаться не хочет 😄 Сейчас приезжаем к маме и сами каждый раз радуемся, что решились на эту стройку.',
+      name:'Екатерина Аболенцева',
+      object:'Дом для мамы · КП «Бонифаций» · Московская область'
+    }
+  ];
+
+  var quote=document.getElementById('krevQuote');
+  var name=document.getElementById('krevName');
+  var object=document.getElementById('krevObject');
+  var copy=document.getElementById('krevCopy');
+  var nums=[].slice.call(document.querySelectorAll('.krev-num'));
+  var doc=document.getElementById('krevDoc');
+  var lb=document.getElementById('krevLightbox');
+  var close=document.getElementById('krevClose');
+  var sheet=lb.querySelector('.krev-lightbox-sheet');
+  var note=lb.querySelector('.krev-note');
+  var originalSheetHTML=sheet.innerHTML;
+  var activeIndex=0;
+
+  function render(i){
+    activeIndex=i;
+    var r=reviews[i];
+    copy.classList.remove('krev-fade');
+    void copy.offsetWidth;
+    quote.textContent=r.quote;
+    name.textContent=r.name;
+    object.textContent=r.object;
+    nums.forEach(function(n,j){n.classList.toggle('is-active',j===i)});
+    copy.classList.add('krev-fade');
+  }
+
+  nums.forEach(function(n){
+    n.addEventListener('click',function(){render(+n.getAttribute('data-i'))});
+  });
+
+  function open(){
+    var original=reviews[activeIndex].original;
+    if(original){
+      sheet.classList.add('krev-sheet-original');
+      sheet.innerHTML='';
+      var img=document.createElement('img');
+      img.src=original;
+      img.alt='Оригинал отзыва';
+      sheet.appendChild(img);
+      note.style.display='none';
+    }else{
+      sheet.classList.remove('krev-sheet-original');
+      sheet.innerHTML=originalSheetHTML;
+      note.style.display='';
+    }
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function shut(){
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  doc.addEventListener('click',open);
+  doc.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  close.addEventListener('click',shut);
+  lb.addEventListener('click',function(e){if(e.target===lb)shut()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')shut()});
+
+  render(0);
+})();
+</script>
+
+<style>
+
+</style>
+
+<style>
+/* ДУБЛЬ 14 - полноценная 1200px сетка */
+@media(min-width:901px){
+  .krev-doc-wrap{
+    justify-content:flex-start;
+    transform:none !important;
+  }
+  .krev-quote{
+    font-size:29px;
+  }
+}
+</style>
+
+<style>
+@media(min-width:901px){
+  .krev-doc-wrap{
+    transform:translateX(38px) !important;
+  }
+}
+</style>
+
+<style>
+/* ДУБЛЬ 16 - мобильная версия отзывов */
+@media(max-width:900px){
+  .krev-stage{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  .krev-copy{
+    order:1 !important;
+  }
+  .krev-doc-wrap{
+    order:2 !important;
+    transform:none !important;
+  }
+}
+@media(max-width:600px){
+  .krev-doc-wrap{
+    margin-top:2px;
+  }
+  .krev-doc{
+    width:min(70vw,270px);
+  }
+  .krev-open{
+    width:138px;
+    font-size:9px;
+  }
+}
+</style>
+
+<script>
+(function(){
+  if(window.innerWidth>600) return;
+  var stage=document.querySelector('.krev-stage');
+  var nums=[].slice.call(document.querySelectorAll('.krev-num'));
+  if(!stage||!nums.length) return;
+
+  var startX=0,startY=0,tracking=false;
+
+  function activeIndex(){
+    for(var i=0;i<nums.length;i++){
+      if(nums[i].classList.contains('is-active')) return i;
+    }
+    return 0;
+  }
+
+  stage.addEventListener('touchstart',function(e){
+    if(!e.touches||e.touches.length!==1) return;
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+    tracking=true;
+  },{passive:true});
+
+  stage.addEventListener('touchend',function(e){
+    if(!tracking||!e.changedTouches||!e.changedTouches.length) return;
+    tracking=false;
+    var dx=e.changedTouches[0].clientX-startX;
+    var dy=e.changedTouches[0].clientY-startY;
+    if(Math.abs(dx)<48||Math.abs(dx)<=Math.abs(dy)*1.2) return;
+
+    var i=activeIndex();
+    if(dx<0 && i<nums.length-1) nums[i+1].click();
+    if(dx>0 && i>0) nums[i-1].click();
+  },{passive:true});
+})();
+</script>
+
+<style>
+/* ДУБЛЬ 19 - 01/02/03 именно под нижним краем документа */
+@media(max-width:600px){
+  .krev-doc-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .krev-doc-wrap .krev-nav{
+    margin-top:24px;
+    justify-content:center;
+    gap:22px;
+    width:100%;
+  }
+  .krev-doc-wrap .krev-num{
+    padding:7px 3px;
+    font-size:12px;
+  }
+}
+</style>
+
+<script>
+(function(){
+  if(window.innerWidth>600) return;
+  var docWrap=document.querySelector('.krev-doc-wrap');
+  var nav=document.querySelector('.krev-nav');
+  if(docWrap && nav){
+    docWrap.appendChild(nav);
+  }
+})();
+</script>
+
+<style>
+/* ДУБЛЬ 20 - едва заметные мобильные стрелки листания */
+@media(max-width:600px){
+  .krev-doc-wrap{
+    position:relative;
+  }
+  .krev-mobile-arrow{
+    position:absolute;
+    top:calc((min(70vw,270px) * 1.4142) / 2);
+    transform:translateY(-50%);
+    z-index:8;
+    width:34px;
+    height:54px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#17211e;
+    font:300 29px/1 Arial,sans-serif;
+    opacity:.22;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    -webkit-tap-highlight-color:transparent;
+    transition:opacity .2s ease;
+  }
+  .krev-mobile-arrow--prev{left:2px}
+  .krev-mobile-arrow--next{right:2px}
+  .krev-mobile-arrow.is-edge{opacity:.07}
+  .krev-mobile-arrow:active{opacity:.38}
+}
+@media(min-width:601px){
+  .krev-mobile-arrow{display:none!important}
+}
+</style>
+
+<script>
+(function(){
+  if(window.innerWidth>600) return;
+
+  var wrap=document.querySelector('.krev-doc-wrap');
+  var nums=[].slice.call(document.querySelectorAll('.krev-num'));
+  if(!wrap||!nums.length) return;
+
+  var prev=document.createElement('button');
+  var next=document.createElement('button');
+
+  prev.type='button';
+  next.type='button';
+  prev.className='krev-mobile-arrow krev-mobile-arrow--prev';
+  next.className='krev-mobile-arrow krev-mobile-arrow--next';
+  prev.setAttribute('aria-label','Предыдущий отзыв');
+  next.setAttribute('aria-label','Следующий отзыв');
+  prev.innerHTML='&#8249;';
+  next.innerHTML='&#8250;';
+
+  wrap.appendChild(prev);
+  wrap.appendChild(next);
+
+  function activeIndex(){
+    for(var i=0;i<nums.length;i++){
+      if(nums[i].classList.contains('is-active')) return i;
+    }
+    return 0;
+  }
+
+  function sync(){
+    var i=activeIndex();
+    prev.classList.toggle('is-edge',i===0);
+    next.classList.toggle('is-edge',i===nums.length-1);
+  }
+
+  prev.addEventListener('click',function(e){
+    e.stopPropagation();
+    var i=activeIndex();
+    if(i>0) nums[i-1].click();
+    sync();
+  });
+
+  next.addEventListener('click',function(e){
+    e.stopPropagation();
+    var i=activeIndex();
+    if(i<nums.length-1) nums[i+1].click();
+    sync();
+  });
+
+  nums.forEach(function(n){
+    n.addEventListener('click',function(){setTimeout(sync,0)});
+  });
+
+  var observer=new MutationObserver(sync);
+  nums.forEach(function(n){
+    observer.observe(n,{attributes:true,attributeFilter:['class']});
+  });
+
+  sync();
+})();
+</script>
+
+<style>
+/* ДУБЛЬ 21 - desktop: деликатно показываем, что отзывы/документы листаются */
+@media(min-width:901px){
+  .krev-doc-wrap{
+    position:relative;
+  }
+  .krev-desktop-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:9;
+    width:34px;
+    height:58px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#17211e;
+    font:300 28px/1 Arial,sans-serif;
+    opacity:.18;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .krev-desktop-arrow--prev{left:-31px}
+  .krev-desktop-arrow--next{right:-31px}
+  .krev-desktop-arrow:hover{opacity:.48}
+  .krev-desktop-arrow:active{opacity:.62}
+  .krev-desktop-arrow.is-edge{opacity:.055}
+}
+@media(max-width:900px){
+  .krev-desktop-arrow{display:none!important}
+}
+</style>
+
+<script>
+(function(){
+  if(window.innerWidth<=900) return;
+
+  var wrap=document.querySelector('.krev-doc-wrap');
+  var nums=[].slice.call(document.querySelectorAll('.krev-num'));
+  if(!wrap||!nums.length) return;
+
+  var prev=document.createElement('button');
+  var next=document.createElement('button');
+  prev.type='button';
+  next.type='button';
+  prev.className='krev-desktop-arrow krev-desktop-arrow--prev';
+  next.className='krev-desktop-arrow krev-desktop-arrow--next';
+  prev.setAttribute('aria-label','Предыдущий отзыв');
+  next.setAttribute('aria-label','Следующий отзыв');
+  prev.innerHTML='&#8249;';
+  next.innerHTML='&#8250;';
+  wrap.appendChild(prev);
+  wrap.appendChild(next);
+
+  function activeIndex(){
+    for(var i=0;i<nums.length;i++){
+      if(nums[i].classList.contains('is-active')) return i;
+    }
+    return 0;
+  }
+
+  function sync(){
+    var i=activeIndex();
+    prev.classList.toggle('is-edge',i===0);
+    next.classList.toggle('is-edge',i===nums.length-1);
+  }
+
+  prev.addEventListener('click',function(e){
+    e.stopPropagation();
+    var i=activeIndex();
+    if(i>0) nums[i-1].click();
+    sync();
+  });
+
+  next.addEventListener('click',function(e){
+    e.stopPropagation();
+    var i=activeIndex();
+    if(i<nums.length-1) nums[i+1].click();
+    sync();
+  });
+
+  nums.forEach(function(n){
+    n.style.cursor='pointer';
+    n.addEventListener('click',function(){ setTimeout(sync,0); });
+  });
+
+  var observer=new MutationObserver(sync);
+  nums.forEach(function(n){
+    observer.observe(n,{attributes:true,attributeFilter:['class']});
+  });
+
+  sync();
+})();
+</script>
+
+<style>
+/* ДУБЛЬ 22 - desktop: зелёные акценты и одинаковая дистанция от документа */
+@media(min-width:901px){
+  .krev-desktop-arrow{
+    color:#096041 !important;
+    opacity:.24 !important;
+  }
+  .krev-desktop-arrow--prev{
+    left:-42px !important;
+    right:auto !important;
+  }
+  .krev-desktop-arrow--next{
+    right:-42px !important;
+    left:auto !important;
+  }
+  .krev-desktop-arrow:hover{
+    opacity:.62 !important;
+  }
+  .krev-desktop-arrow:active{
+    opacity:.78 !important;
+  }
+  .krev-desktop-arrow.is-edge{
+    opacity:.08 !important;
+  }
+
+  /* цифры тоже получают лёгкий фирменный зелёный акцент */
+  .krev-num{
+    color:rgba(9,96,65,.48) !important;
+    transition:color .2s ease, opacity .2s ease !important;
+  }
+  .krev-num:hover{
+    color:#096041 !important;
+  }
+  .krev-num.is-active{
+    color:#096041 !important;
+  }
+}
+</style>
+
+<style>
+/* ДУБЛЬ 24 - desktop: две стрелки симметрично по краям,
+   вертикальный центр считается по зоне от начала цитаты до низа документа */
+@media(min-width:901px){
+  .krev-stage{
+    position:relative;
+    padding-left:34px;
+    padding-right:34px;
+    box-sizing:border-box;
+  }
+
+  .krev-desktop-arrow{
+    position:absolute !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    width:38px !important;
+    height:64px !important;
+    color:#096041 !important;
+    opacity:.25 !important;
+    font-size:32px !important;
+    z-index:20 !important;
+  }
+
+  .krev-desktop-arrow--prev{
+    left:-26px !important;
+    right:auto !important;
+  }
+
+  .krev-desktop-arrow--next{
+    right:-26px !important;
+    left:auto !important;
+  }
+
+  .krev-desktop-arrow:hover{opacity:.62 !important}
+  .krev-desktop-arrow:active{opacity:.78 !important}
+  .krev-desktop-arrow.is-edge{opacity:.08 !important}
+}
+</style>
+
+<script>
+(function(){
+  if(window.innerWidth<=900) return;
+
+  var stage=document.querySelector('.krev-stage');
+  var quote=document.querySelector('.krev-quote');
+  var doc=document.querySelector('.krev-doc');
+  var prev=document.querySelector('.krev-desktop-arrow--prev');
+  var next=document.querySelector('.krev-desktop-arrow--next');
+
+  if(!stage||!quote||!doc||!prev||!next) return;
+
+  /* Стрелки изначально созданы внутри doc-wrap.
+     Переносим их в stage, чтобы обе стороны считались от одной геометрии. */
+  stage.appendChild(prev);
+  stage.appendChild(next);
+
+  function place(){
+    var sr=stage.getBoundingClientRect();
+    var qr=quote.getBoundingClientRect();
+    var dr=doc.getBoundingClientRect();
+
+    /* Верх - начало цитаты.
+       Низ - нижний край документа.
+       Получаем визуальную середину всей основной зоны отзыва. */
+    var top=Math.min(qr.top,dr.top);
+    var bottom=Math.max(qr.bottom,dr.bottom);
+    var center=((top+bottom)/2)-sr.top;
+
+    prev.style.top=center+'px';
+    next.style.top=center+'px';
+  }
+
+  place();
+  requestAnimationFrame(place);
+  window.addEventListener('resize',place);
+})();
+</script>
+
+<style>
+/* ДУБЛЬ 25 - desktop: стрелки чуть крупнее и ярче */
+@media(min-width:901px){
+  .krev-desktop-arrow{
+    width:44px !important;
+    height:70px !important;
+    font-size:38px !important;
+    opacity:.36 !important;
+  }
+  .krev-desktop-arrow:hover{
+    opacity:.72 !important;
+  }
+  .krev-desktop-arrow:active{
+    opacity:.86 !important;
+  }
+  .krev-desktop-arrow.is-edge{
+    opacity:.14 !important;
+  }
+}
+</style>
+
+<style>
+/* ДУБЛЬ 26 - mobile: стрелки чуть крупнее и слегка зеленоватые */
+@media(max-width:600px){
+  .krev-mobile-arrow{
+    width:40px !important;
+    height:60px !important;
+    font-size:34px !important;
+    color:#096041 !important;
+    opacity:.30 !important;
+  }
+  .krev-mobile-arrow:active{
+    opacity:.58 !important;
+  }
+  .krev-mobile-arrow.is-edge{
+    opacity:.11 !important;
+  }
+}
+</style>
+<style>
+/* Оригинал первого отзыва показывается только при открытии, без листа A4 */
+#krevLightbox .krev-lightbox-sheet.krev-sheet-original{
+  width:auto!important;
+  height:auto!important;
+  max-width:calc(100vw - 40px)!important;
+  max-height:calc(100vh - 100px)!important;
+  aspect-ratio:auto!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+}
+#krevLightbox .krev-sheet-original img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:calc(100vw - 40px);
+  max-height:calc(100vh - 100px);
+  object-fit:contain;
+  border-radius:3px;
+  box-shadow:0 20px 70px rgba(0,0,0,.35);
+}
+</style>
