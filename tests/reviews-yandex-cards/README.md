@@ -7,3 +7,5 @@ All quotes and original screenshot sources are unchanged from the corrected revi
 Test selectors, arrows, original opening, close/Escape and mobile layout. Previous block retained in before.html for rollback.
 
 Validation: all JavaScript parses, review data and original URLs match the corrected prior version. Repeated arrow/swipe enhancement scripts consolidated into one controller. Desktop 02/03 navigation and original opening tested; 390px mobile selector, original opening/close and return to paper review 01 tested. New card is 270x360 on the mobile test. Preview service truncation was isolated with QA-only transport padding; no padding or local paths are present in the deliverable.
+
+Oval button revision: the Yandex card uses the same krev-open pill styling as the paper review, with label ПОСМОТРЕТЬ ОРИГИНАЛ and no diagonal arrow. Review content, navigation and original-opening behavior are unchanged.
