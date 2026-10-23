@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-23",
+  "site": "https://konturdoma.ru/",
+  "baseMainCommit": "65e18a0c7892693f825b42895d34e32d555f2a4a",
+  "files": [
+    {
+      "path": "01-hero.txt",
+      "label": "Первый экран",
+      "bytes": 33117,
+      "sha256": "a52f67ab6c8799434c7cc674c94824becec124d9f539ddc059cc0df8281ec158",
+      "sourceCommit": "5431b0c89979936d63d80cc2847fe398b08ce250",
+      "sourcePath": "tests/photo-compression-v2/KONTUR_hero_mobile_v2_test.txt"
+    },
+    {
+      "path": "02-projects.txt",
+      "label": "Построенные объекты - все 11 проектов",
+      "bytes": 149,
+      "sha256": "94fa707fca5ce003cf791fb4762fdb8b722574486865f74b7da50c1ba69a4f9e",
+      "sourceCommit": "5431b0c89979936d63d80cc2847fe398b08ce250",
+      "sourcePath": "tests/photo-compression-v2/KONTUR_projects_mobile_v2_test.txt"
+    },
+    {
+      "path": "03-popular-projects.txt",
+      "label": "Популярные проекты домов",
+      "bytes": 62537,
+      "sha256": "bae42b72b158d46ea811e6366366441fc2c9b9b1f01e9d4c1eff20b1049956ed",
+      "sourceCommit": "5f5691b0dee8f960615eabd001c349cbef3ba041",
+      "sourcePath": "tests/remaining-photos/KONTUR_popular_mobile_test.txt"
+    },
+    {
+      "path": "04-construction-stages.txt",
+      "label": "Этапы строительства",
+      "bytes": 38183,
+      "sha256": "227ad377ed8c5320f23ff9038f637c36baecfc1052fc3918f6bc94eca5316a9b",
+      "sourceCommit": "5f5691b0dee8f960615eabd001c349cbef3ba041",
+      "sourcePath": "tests/remaining-photos/KONTUR_steps_mobile_test.txt"
+    },
+    {
+      "path": "05-beam-3d.txt",
+      "label": "3D-брус с отложенным запуском",
+      "bytes": 33798,
+      "sha256": "063283bfd43b8c20122d9dc2f090ec78a80c059a2e2882076cfec7429918a860",
+      "sourceCommit": "72def686269d6d883d41ad0e93f34eed8684531f",
+      "sourcePath": "tests/beam-lazy/KONTUR_beam_lazy_test.txt"
+    },
+    {
+      "path": "06-photo-notice.txt",
+      "label": "Уведомление о медленной загрузке фото",
+      "bytes": 6210,
+      "sha256": "bafa93d291206fe708df9417f7f95cc2adf18e55d9a3e9f26e5a224a1d7bd6f6",
+      "sourceCommit": "d051f1a9dddb832e0adca11723a280672a989840",
+      "sourcePath": "tests/photo-notice/KONTUR_photo_notice_close_only.txt"
+    },
+    {
+      "path": "07-reviews.txt",
+      "label": "Отзывы - окончательная версия",
+      "bytes": 29849,
+      "sha256": "5784439c46a512b1fa4dcca93baa98a4c4c08e9ae02248936eabbab4d7325da0",
+      "sourceCommit": "59665ede4e26bb49326ed5e1b11842e19bf87e0c",
+      "sourcePath": "tests/reviews-original-reader/KONTUR_reviews_unified_buttons.txt"
+    },
+    {
+      "path": "sources/kontur-projects-webp-v2.js",
+      "label": "Исходник скрипта объектов, подключённого через jsDelivr",
+      "bytes": 127922,
+      "sha256": "11dd63082654ee41c4700a2f22ca314bc0b6983a006e5ca7ba8aaee93ce024b4",
+      "sourceCommit": "5431b0c89979936d63d80cc2847fe398b08ce250",
+      "sourcePath": "kontur-projects-webp-v2-test.js"
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/hero/glavnaya-mobile.webp",
+      "sha": "e1302a25f87c1cd53e4a68a76228cfd72c71e4d7",
+      "size": 144840
+    },
+    {
+      "path": "assets/remaining-mobile/igora.webp",
+      "sha": "b8ee18bf783f2bb630c4ac800f25723876524bf9",
+      "size": 96200
+    },
+    {
+      "path": "assets/remaining-mobile/kvartsi.webp",
+      "sha": "c952fe1715c83908c96fe6a548eb00ba50baf38f",
+      "size": 107048
+    },
+    {
+      "path": "assets/remaining-mobile/leon.webp",
+      "sha": "605ca2460a03e65a7266cc0f60b89856e2f360ec",
+      "size": 85394
+    },
+    {
+      "path": "assets/remaining-mobile/stage-1.webp",
+      "sha": "f00056a57c4049fd69aae8b045a26cec1a07da02",
+      "size": 104778
+    },
+    {
+      "path": "assets/mobile-v2/hero.webp",
+      "sha": "2b970b3d64b8833042a64ae7ec19c492d9cf6285",
+      "size": 112746
+    },
+    {
+      "path": "assets/mobile-v2/sosnovka-cover.webp",
+      "sha": "622acaafe1f12b07738354be4e1c40ecf4f61d10",
+      "size": 142798
+    }
+  ],
+  "liveHtmlMarkers": {
+    "hero": true,
+    "projects": true,
+    "popular": true,
+    "stages": true,
+    "beam": true,
+    "photoNotice": true,
+    "reviews": true,
+    "oldNoticeAutoHideAbsent": true,
+    "reviewButtonLabelsUnified": true
+  }
+}

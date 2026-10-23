@@ -1,0 +1,1418 @@
+<!-- КОНТУР: ранняя загрузка используемого шрифта. Вставляется вместе с блоком в T123. -->
+<link rel="preload"
+      href="https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      fetchpriority="high">
+
+<style>
+#kontur-hero,
+#kontur-hero *{
+  box-sizing:border-box;
+}
+
+#kontur-hero{
+  --green:#096041;
+  position:relative;
+  width:100%;
+  height:100svh;
+  min-height:760px;
+  overflow:hidden;
+  background:#09100d;
+  color:#fff;
+  font-family:"TildaSans",Arial,sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.kh-photo{
+  position:absolute;
+  z-index:0;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+
+.kh-photo-overlay{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,9,7,.78) 0%,
+      rgba(3,9,7,.66) 20%,
+      rgba(3,9,7,.42) 39%,
+      rgba(3,9,7,.16) 57%,
+      rgba(3,9,7,.03) 73%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3,8,6,.86) 0%,
+      rgba(3,8,6,.20) 38%,
+      rgba(3,8,6,.02) 70%
+    );
+  pointer-events:none;
+}
+
+.kh-title-shade{
+  position:absolute;
+  z-index:2;
+  left:0;
+  top:0;
+  width:82%;
+  height:86%;
+  background:
+    radial-gradient(
+      ellipse 100% 88% at 0% 39%,
+      rgba(1,7,5,.44) 0%,
+      rgba(1,7,5,.39) 30%,
+      rgba(1,7,5,.31) 48%,
+      rgba(1,7,5,.20) 62%,
+      rgba(1,7,5,.09) 73%,
+      rgba(1,7,5,.025) 82%,
+      transparent 91%
+    );
+  pointer-events:none;
+}
+
+.kh-bottom-fade{
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  height:36%;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(3,8,6,0) 0%,
+      rgba(3,8,6,.26) 43%,
+      rgba(3,8,6,.87) 100%
+    );
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.kh-header{
+  position:relative;
+  z-index:20;
+  height:105px;
+  padding:0 6.3vw;
+  display:grid;
+  grid-template-columns:255px 1fr auto;
+  align-items:center;
+  gap:30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.kh-logo{
+  display:block;
+  width:205px;
+  color:#fff;
+  text-decoration:none;
+}
+
+.kh-logo svg{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.kh-logo svg polygon,
+.kh-logo svg text{
+  fill:currentColor;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.kh-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:34px;
+}
+
+.kh-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  line-height:1;
+  white-space:nowrap;
+  font-weight:400;
+  opacity:.94;
+  transition:.2s ease;
+}
+
+.kh-nav a:hover{
+  opacity:.65;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.kh-head-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.kh-social{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border-radius:50%;
+  background:#096041;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.kh-social:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+}
+
+.kh-social svg{
+  width:21px;
+  height:21px;
+  display:block;
+}
+
+.kh-max-icon{
+  font-family:"TildaSans",Arial,sans-serif;
+  font-size:9px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.3px;
+}
+
+
+/* =========================================================
+   CALLBACK
+========================================================= */
+
+.kh-callback{
+  height:46px;
+  margin-left:9px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1.7px solid rgba(255,255,255,.96);
+  border-radius:23px;
+  background:rgba(0,0,0,.05);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:.2s ease;
+}
+
+.kh-callback:hover{
+  background:rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.kh-main{
+  position:relative;
+  z-index:5;
+  height:calc(100% - 105px);
+  padding:clamp(55px,7vh,95px) 6.3vw 205px;
+  display:flex;
+  align-items:flex-start;
+}
+
+.kh-copy{
+  width:min(850px,58vw);
+}
+
+.kh-title{
+  margin:0;
+  font-family:"TildaSans",Arial,sans-serif;
+  font-size:clamp(50px,4.3vw,72px);
+  line-height:1.035;
+  letter-spacing:-.045em;
+  font-weight:650;
+}
+
+.kh-title-green{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin-top:11px;
+  color:#0A7550;
+}
+
+.kh-sub{
+  max-width:650px;
+  margin:28px 0 0;
+  font-size:19px;
+  line-height:1.52;
+  font-weight:400;
+  color:rgba(255,255,255,.93);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.kh-cta{
+  display:flex;
+  align-items:center;
+  margin-top:32px;
+}
+
+.kh-btn{
+  min-height:50px;
+  padding:0 32px;
+  border-radius:25px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family:"TildaSans",Arial,sans-serif;
+  font-size:15px;
+  line-height:1;
+  font-weight:600;
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.kh-btn-main{
+  position:relative;
+  overflow:hidden;
+  background:#096041;
+  border:1.7px solid #096041;
+  color:#fff;
+}
+
+.kh-btn-main:hover{
+  filter:brightness(1.08);
+  transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   BUTTON FLASH
+========================================================= */
+
+.kh-btn-main::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:-125%;
+  left:-105px;
+  width:46px;
+  height:350%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,.04) 18%,
+      rgba(255,255,255,.14) 36%,
+      rgba(255,255,255,.40) 50%,
+      rgba(255,255,255,.14) 64%,
+      rgba(255,255,255,.04) 82%,
+      transparent 100%
+    );
+  transform:rotate(26deg);
+  transform-origin:center;
+  pointer-events:none;
+  animation:konturButtonFlash 4.75s ease-in-out infinite;
+}
+
+@keyframes konturButtonFlash{
+  0%,52.63%{
+    left:-105px;
+  }
+
+  100%{
+    left:calc(100% + 105px);
+  }
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.kh-benefits{
+  position:absolute;
+  z-index:6;
+  left:6.3vw;
+  right:6.3vw;
+  bottom:34px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:65px;
+}
+
+.kh-benefit{
+  min-height:95px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:0;
+  border:0;
+}
+
+.kh-benefit-icon{
+  flex:0 0 54px;
+  width:54px;
+  height:54px;
+  color:#096041;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.kh-benefit-icon svg{
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.kh-benefit-text b{
+  display:block;
+  font-size:16px;
+  line-height:1.28;
+  font-weight:600;
+}
+
+.kh-benefit-text span{
+  display:block;
+  margin-top:7px;
+  font-size:13px;
+  line-height:1.35;
+  font-weight:400;
+  color:rgba(255,255,255,.67);
+}
+
+
+/* =========================================================
+   BURGER
+========================================================= */
+
+.kh-burger{
+  display:none;
+  width:48px;
+  height:48px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#096041;
+  cursor:pointer;
+}
+
+.kh-burger span{
+  display:block;
+  width:20px;
+  height:2px;
+  margin:5px auto;
+  border-radius:3px;
+  background:#fff;
+}
+
+.kh-mobile-menu{
+  display:none;
+}
+
+
+/* =========================================================
+   DESKTOP CTA +15%
+========================================================= */
+
+@media(min-width:901px){
+  .kh-btn{
+    min-height:58px;
+    padding:0 37px;
+    border-radius:29px;
+    font-size:17px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+  #kontur-hero{
+    height:auto;
+    min-height:100svh;
+    overflow:hidden;
+  }
+
+  .kh-photo{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:61% center;
+  }
+
+  .kh-photo-overlay{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3,8,6,.25) 0%,
+        rgba(3,8,6,.16) 52%,
+        rgba(3,8,6,.04) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(3,8,6,.08) 0%,
+        rgba(3,8,6,.08) 20%,
+        rgba(3,8,6,.18) 35%,
+        rgba(3,8,6,.35) 53%,
+        rgba(3,8,6,.57) 70%,
+        rgba(3,8,6,.78) 85%,
+        rgba(3,8,6,.91) 100%
+      );
+  }
+
+  .kh-title-shade{
+    display:block;
+    left:-25%;
+    top:27%;
+    width:150%;
+    height:45%;
+    background:
+      radial-gradient(
+        ellipse 105% 78% at 28% 45%,
+        rgba(2,8,6,.29) 0%,
+        rgba(2,8,6,.21) 38%,
+        rgba(2,8,6,.09) 64%,
+        rgba(2,8,6,.035) 76%,
+        transparent 90%
+      );
+    pointer-events:none;
+  }
+
+  .kh-bottom-fade{
+    height:39%;
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(3,8,6,.10) 22%,
+        rgba(3,8,6,.44) 64%,
+        rgba(3,8,6,.84) 100%
+      );
+  }
+
+  .kh-header{
+    height:82px;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .kh-logo{
+    width:178px;
+  }
+
+  .kh-nav,
+  .kh-head-right{
+    display:none;
+  }
+
+  .kh-burger{
+    display:block;
+    width:38px;
+    height:38px;
+    flex:0 0 38px;
+    border-radius:10px;
+  }
+
+  .kh-burger span{
+    width:19px;
+    height:2px;
+    margin:4px auto;
+  }
+
+  .kh-main{
+    height:auto;
+    min-height:0;
+    padding:88px 20px 0;
+    display:block;
+  }
+
+  .kh-copy{
+    width:100%;
+    max-width:none;
+  }
+
+  .kh-title{
+    max-width:600px;
+    font-size:39px;
+    line-height:1.03;
+    letter-spacing:-.035em;
+    font-weight:700;
+  }
+
+  .kh-title-green{
+    width:auto;
+    margin-top:10px;
+    color:#0D8B61;
+  }
+
+  .kh-sub{
+    max-width:560px;
+    margin-top:25px;
+    font-size:18px;
+    line-height:1.5;
+    font-weight:400;
+    color:rgba(255,255,255,.98);
+    text-shadow:0 1px 12px rgba(0,0,0,.28);
+  }
+
+  .kh-cta{
+    width:auto;
+    margin-top:29px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+  }
+
+  .kh-btn{
+    width:auto;
+    min-height:57px;
+    padding:0 32px;
+    border-radius:29px;
+    font-size:16px;
+    white-space:nowrap;
+  }
+
+  .kh-benefits{
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    margin-top:52px;
+    padding:0 20px 29px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+
+  .kh-benefit{
+    min-height:0;
+    padding:11px 0;
+    border:0;
+    display:grid;
+    grid-template-columns:49px 1fr;
+    gap:16px;
+    align-items:center;
+  }
+
+  .kh-benefit:first-child{
+    padding-top:0;
+  }
+
+  .kh-benefit-icon{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+  }
+
+  .kh-benefit-icon svg{
+    stroke-width:2.1;
+  }
+
+  .kh-benefit-text b{
+    font-size:16px;
+    line-height:1.28;
+    font-weight:600;
+  }
+
+  .kh-benefit-text span{
+    margin-top:4px;
+    font-size:13px;
+    line-height:1.35;
+  }
+
+  .kh-mobile-menu{
+    position:absolute;
+    z-index:50;
+    inset:0 0 auto 0;
+    min-height:0;
+    padding:0 22px 30px;
+    background:rgba(5,11,9,.985);
+  }
+
+  #kontur-hero.menu-open .kh-mobile-menu{
+    display:block;
+  }
+
+  .kh-mobile-menu-top{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .kh-mobile-menu-top .kh-logo{
+    width:178px;
+  }
+
+  .kh-close{
+    width:38px;
+    height:38px;
+    padding:0;
+    border:0;
+    border-radius:10px;
+    background:#096041;
+    color:#fff;
+    font-family:"TildaSans",Arial,sans-serif;
+    font-size:25px;
+    line-height:38px;
+    font-weight:300;
+    cursor:pointer;
+  }
+
+  .kh-menu-nav{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:26px;
+    padding:31px 0 26px;
+  }
+
+  .kh-menu-nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:19px;
+    font-weight:500;
+  }
+
+  .kh-menu-socials{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:7px;
+  }
+
+  .kh-menu-socials .kh-social{
+    width:50px;
+    height:50px;
+    flex-basis:50px;
+  }
+
+  .kh-menu-socials .kh-social svg{
+    width:24px;
+    height:24px;
+  }
+
+  .kh-menu-socials .kh-max-icon{
+    font-size:10px;
+  }
+
+  .kh-menu-phone{
+    display:block;
+    width:max-content;
+    margin:31px auto 0;
+    color:#fff;
+    text-decoration:none;
+    font-family:"TildaSans",Arial,sans-serif;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:600;
+    letter-spacing:.01em;
+  }
+
+  .kh-menu-callback{
+    width:100%;
+    max-width:360px;
+    height:46px;
+    margin:31px auto 0;
+    border:1.7px solid #fff;
+    border-radius:23px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+  .kh-logo{
+    width:162px;
+  }
+
+  .kh-mobile-menu-top .kh-logo{
+    width:162px;
+  }
+
+  .kh-main{
+    padding-top:74px;
+  }
+
+  .kh-title{
+    font-size:37px;
+  }
+
+  .kh-sub{
+    font-size:17px;
+  }
+
+  .kh-btn{
+    padding-left:28px;
+    padding-right:28px;
+    font-size:15px;
+  }
+}
+
+
+/* =========================================================
+   SHORT MOBILE
+========================================================= */
+
+@media(max-width:900px) and (max-height:760px){
+
+  .kh-main{
+    padding-top:60px;
+  }
+}
+
+
+/* =========================================================
+   CTA TEXT
+========================================================= */
+
+.kh-cta-mobile{
+  display:none;
+}
+
+@media(max-width:900px){
+
+  .kh-cta-desktop{
+    display:none;
+  }
+
+  .kh-cta-mobile{
+    display:inline;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  .kh-btn-main::after{
+    animation:none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE MENU HEIGHT ADAPTATION
+========================================================= */
+
+@media(max-width:900px) and (max-height:760px){
+
+  .kh-menu-nav{
+    gap:20px;
+    padding-top:20px;
+    padding-bottom:18px;
+  }
+
+  .kh-menu-phone{
+    margin-top:17px;
+  }
+
+  .kh-menu-callback{
+    margin-top:17px;
+  }
+}
+
+@media(max-width:900px) and (max-height:650px){
+
+  .kh-mobile-menu{
+    min-height:100svh;
+    padding-bottom:20px;
+  }
+
+  .kh-menu-nav{
+    gap:18px;
+    padding-top:14px;
+    padding-bottom:14px;
+  }
+
+  .kh-menu-nav a{
+    font-size:18px;
+  }
+
+  .kh-menu-socials,
+  .kh-menu-callback{
+    display:none;
+  }
+
+  .kh-menu-phone{
+    margin-top:14px;
+    font-size:17px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE DESKTOP HEADER
+========================================================= */
+
+@media(min-width:1251px) and (max-width:1400px){
+
+  .kh-callback{
+    display:none;
+  }
+
+  .kh-header{
+    grid-template-columns:225px 1fr auto;
+    gap:22px;
+  }
+
+  .kh-nav{
+    gap:24px;
+  }
+
+  .kh-nav a{
+    font-size:16px;
+  }
+}
+
+@media(min-width:1101px) and (max-width:1250px){
+
+  .kh-head-right{
+    display:none;
+  }
+
+  .kh-header{
+    grid-template-columns:225px 1fr;
+    gap:26px;
+  }
+
+  .kh-nav{
+    justify-content:flex-end;
+    gap:26px;
+  }
+
+  .kh-nav a{
+    font-size:16px;
+  }
+}
+
+@media(min-width:901px) and (max-width:1100px){
+
+  .kh-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .kh-nav,
+  .kh-head-right{
+    display:none;
+  }
+
+  .kh-burger{
+    display:block;
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    border-radius:10px;
+  }
+
+  .kh-burger span{
+    width:20px;
+    height:2px;
+    margin:4px auto;
+  }
+
+  .kh-mobile-menu{
+    position:absolute;
+    z-index:50;
+    inset:0 0 auto 0;
+    min-height:590px;
+    padding:0 22px 34px;
+    background:rgba(5,11,9,.985);
+  }
+
+  #kontur-hero.menu-open .kh-mobile-menu{
+    display:block;
+  }
+
+  .kh-mobile-menu-top{
+    height:105px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .kh-mobile-menu-top .kh-logo{
+    width:205px;
+  }
+
+  .kh-close{
+    width:42px;
+    height:42px;
+    padding:0;
+    border:0;
+    border-radius:10px;
+    background:#096041;
+    color:#fff;
+    font-family:"TildaSans",Arial,sans-serif;
+    font-size:27px;
+    line-height:42px;
+    font-weight:300;
+    cursor:pointer;
+  }
+
+  .kh-menu-nav{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:26px;
+    padding:31px 0 26px;
+  }
+
+  .kh-menu-nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:19px;
+    font-weight:500;
+  }
+
+  .kh-menu-socials{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:7px;
+  }
+
+  .kh-menu-socials .kh-social{
+    width:50px;
+    height:50px;
+    flex-basis:50px;
+  }
+
+  .kh-menu-socials .kh-social svg{
+    width:24px;
+    height:24px;
+  }
+
+  .kh-menu-socials .kh-max-icon{
+    font-size:10px;
+  }
+
+  .kh-menu-phone{
+    display:block;
+    width:max-content;
+    margin:31px auto 0;
+    color:#fff;
+    text-decoration:none;
+    font-family:"TildaSans",Arial,sans-serif;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:600;
+    letter-spacing:.01em;
+  }
+
+  .kh-menu-callback{
+    width:100%;
+    max-width:360px;
+    height:46px;
+    margin:31px auto 0;
+    border:1.7px solid #fff;
+    border-radius:23px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+  }
+}
+
+
+/* =========================================================
+   FIXED MOBILE BAR - DUBL 2
+========================================================= */
+.kh-mobile-fixedbar{display:none}
+
+@media(max-width:900px){
+  .kh-mobile-fixedbar{
+    position:fixed;
+    z-index:1000;
+    top:10px;
+    left:12px;
+    right:12px;
+    height:58px;
+    padding:0 8px 0 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border:1px solid rgba(9,96,65,.10);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-14px);
+    pointer-events:none;
+    transition:opacity .28s ease,transform .28s ease,visibility .28s ease;
+    border-radius:12px;
+    background:rgba(255,255,255,.94);
+    box-shadow:0 8px 28px rgba(15,37,29,.11);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+  }
+  .kh-fixed-logo{
+    display:block;
+    width:154px;
+    color:#096041;
+    text-decoration:none;
+  }
+  .kh-fixed-logo svg{display:block;width:100%;height:auto}
+  .kh-fixed-logo svg polygon,.kh-fixed-logo svg text{fill:currentColor}
+  .kh-fixed-burger{
+    width:42px;height:42px;padding:0;border:0;border-radius:10px;
+    background:#096041;cursor:pointer;flex:0 0 42px;
+  }
+  .kh-fixed-burger span{
+    display:block;width:19px;height:2px;margin:4px auto;
+    border-radius:3px;background:#fff;
+  }
+  /* В самой hero оставляем исходный бургер, но постоянная панель поверх него */
+  .kh-mobile-fixedbar.kh-fixedbar-visible{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+  #kontur-hero.menu-open .kh-mobile-fixedbar{display:none}
+  .kh-mobile-menu{
+    position:fixed !important;
+    z-index:1100 !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:auto !important;
+    min-height:0 !important;
+    max-height:calc(100svh - 12px);
+    overflow-y:auto;
+  }
+}
+@media(min-width:901px){
+  .kh-mobile-fixedbar{display:none !important}
+}
+
+
+@media(max-width:900px){
+  html:has(#kontur-hero.menu-open),
+  body:has(#kontur-hero.menu-open){
+    overflow-y:auto !important;
+    overscroll-behavior:auto !important;
+  }
+}
+
+</style> <section id="kontur-hero"> <picture style="display:contents"> <source media="(max-width:900px)" type="image/webp"
+      srcset="https://raw.githubusercontent.com/davaygazu/kontur-images/e3a396b31a295fe1f70df120e1c0a0f5c0f34d78/assets/mobile-v2/hero.webp"> <img
+    class="kh-photo"
+    src="https://raw.githubusercontent.com/davaygazu/kontur-images/main/glavnaya-konturdoma.webp"
+    width="1672"
+    height="941"
+    alt=""
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+  > </picture> <div class="kh-photo-overlay"></div> <div class="kh-title-shade"></div> <div class="kh-bottom-fade"></div> <header class="kh-header"> <a class="kh-logo" href="#kontur-hero" aria-label="КОНТУР"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 700" aria-hidden="true"> <g fill="currentColor"> <polygon points="130,520 152,520 152,302 310,144 310,520 332,520 332,92 130,294"/> <polygon points="365,130 387,148 387,520 365,520"/> <polygon points="420,175 442,193 442,520 420,520"/> <polygon points="475,220 497,238 497,520 475,520"/> <polygon points="530,265 552,283 552,520 530,520"/> </g> <text x="720" y="405" font-family="TildaSans, Arial, sans-serif" font-size="150" font-weight="400" fill="currentColor" textLength="1060" lengthAdjust="spacing">
+          КОНТУР
+        </text> <text x="720" y="515" font-family="TildaSans, Arial, sans-serif" font-size="70" font-weight="400" fill="currentColor" textLength="1060" lengthAdjust="spacing">
+          дома из клееного бруса
+        </text> </svg> </a> <nav class="kh-nav"> <a href="#projects">Проекты</a> <a href="#production">Производство</a> <a href="#otzivi">Отзывы</a> <a href="#quiz">Рассчитать стоимость</a> <a href="#maps">Контакты</a> </nav> <div class="kh-head-right"> <a class="kh-social" href="https://t.me/konturdoma" target="_blank" rel="noopener" aria-label="Telegram"> <svg viewBox="0 0 24 24"> <path fill="currentColor" stroke="none" d="M21.6 3.2 18.5 19c-.23 1.11-.85 1.38-1.72.86l-4.72-3.48-2.28 2.19c-.25.25-.46.46-.95.46l.34-4.81 8.75-7.91c.38-.34-.08-.53-.59-.19L6.51 12.94l-4.66-1.46c-1.01-.32-1.03-1.01.21-1.5L20.28 2.96c.84-.31 1.58.19 1.32.24z"/> </svg> </a> <a class="kh-social kh-max-icon" href="https://max.ru/u/f9LHodD0cOKRh93IMHEVoDCXJ39RKqMl_SLq_2z0wa-dPY44P8ARM7fgqPw" target="_blank" rel="noopener" aria-label="MAX">
+        MAX
+      </a> <a class="kh-social" href="https://wa.me/79939699409" target="_blank" rel="noopener" aria-label="WhatsApp"> <svg viewBox="0 0 24 24"> <path fill="currentColor" stroke="none" d="M12.04 2a9.84 9.84 0 0 0-8.48 14.8L2.1 22l5.32-1.4A9.94 9.94 0 1 0 12.04 2zm0 17.98a8.08 8.08 0 0 1-4.12-1.13l-.3-.18-3.16.83.84-3.08-.2-.32a8.14 8.14 0 1 1 6.94 3.88zm4.46-6.08c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/> </svg> </a> <a class="kh-callback" href="#popup:zvonok">
+        Перезвоните мне
+      </a> </div> <button class="kh-burger" type="button" aria-label="Открыть меню"> <span></span> <span></span> <span></span> </button> </header> <div class="kh-main"> <div class="kh-copy"> <h1 class="kh-title">
+        Современные дома<br>
+        из клеёного бруса
+
+        <span class="kh-title-green">
+          по цене каркасного дома
+        </span> </h1> <p class="kh-sub">
+        Проектируем, производим и строим современные дома
+        из клеёного бруса под ключ по всей России
+      </p> <div class="kh-cta"> <a class="kh-btn kh-btn-main" href="#popup:myform"> <span class="kh-cta-desktop">
+            Обсудить будущий дом
+          </span> <span class="kh-cta-mobile">
+            Обсудить ваш будущий дом
+          </span> </a> </div> </div> </div> <div class="kh-benefits"> <div class="kh-benefit"> <div class="kh-benefit-icon"> <svg viewBox="0 0 64 64"> <path d="M10 23 32 12l22 11-22 11z"/> <path d="M10 30 32 41l22-11"/> <path d="M10 37 32 48l22-11"/> <path d="M10 44 32 55l22-11"/> </svg> </div> <div class="kh-benefit-text"> <b>Технология клеёного бруса</b> <span>с 1988 года</span> </div> </div> <div class="kh-benefit"> <div class="kh-benefit-icon"> <svg viewBox="0 0 64 64"> <path d="M9 30 32 10l23 20"/> <path d="M15 26v28h34V26"/> <path d="M25 54V39h14v15"/> <path d="M21 31h7v7h-7z"/> <path d="M36 31h7v7h-7z"/> </svg> </div> <div class="kh-benefit-text"> <b>Индивидуальное проектирование</b> <span>Под ваш участок и образ жизни</span> </div> </div> <div class="kh-benefit"> <div class="kh-benefit-icon"> <svg viewBox="0 0 64 64"> <path d="M32 8 L49 14 V28 C49 40 42 49 32 55 C22 49 15 40 15 28 V14 Z"/> <path d="M24 31 L29 36 L40 25"/> </svg> </div> <div class="kh-benefit-text"> <b>Контроль качества на каждом этапе</b> <span>От производства до строительства</span> </div> </div> </div> <div class="kh-mobile-fixedbar" aria-label="Мобильная навигация"> <a class="kh-fixed-logo" href="#kontur-hero" aria-label="КОНТУР"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 700" aria-hidden="true"> <g fill="currentColor"> <polygon points="130,520 152,520 152,302 310,144 310,520 332,520 332,92 130,294"/> <polygon points="365,130 387,148 387,520 365,520"/> <polygon points="420,175 442,193 442,520 420,520"/> <polygon points="475,220 497,238 497,520 475,520"/> <polygon points="530,265 552,283 552,520 530,520"/> </g> <text x="720" y="405" font-family="TildaSans, Arial, sans-serif" font-size="150" font-weight="400" fill="currentColor" textLength="1060" lengthAdjust="spacing">КОНТУР</text> <text x="720" y="515" font-family="TildaSans, Arial, sans-serif" font-size="70" font-weight="400" fill="currentColor" textLength="1060" lengthAdjust="spacing">дома из клееного бруса</text> </svg> </a> <button class="kh-fixed-burger" type="button" aria-label="Открыть меню"> <span></span><span></span><span></span> </button> </div> <div class="kh-mobile-menu"> <div class="kh-mobile-menu-top"> <a class="kh-logo" href="#kontur-hero" aria-label="КОНТУР"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 700" aria-hidden="true"> <g fill="currentColor"> <polygon points="130,520 152,520 152,302 310,144 310,520 332,520 332,92 130,294"/> <polygon points="365,130 387,148 387,520 365,520"/> <polygon points="420,175 442,193 442,520 420,520"/> <polygon points="475,220 497,238 497,520 475,520"/> <polygon points="530,265 552,283 552,520 530,520"/> </g> <text x="720" y="405" font-family="TildaSans, Arial, sans-serif" font-size="150" font-weight="400" fill="currentColor" textLength="1060" lengthAdjust="spacing">
+            КОНТУР
+          </text> <text x="720" y="515" font-family="TildaSans, Arial, sans-serif" font-size="70" font-weight="400" fill="currentColor" textLength="1060" lengthAdjust="spacing">
+            дома из клееного бруса
+          </text> </svg> </a> <button class="kh-close" type="button" aria-label="Закрыть меню">
+        ×
+      </button> </div> <nav class="kh-menu-nav"> <a href="#projects">Проекты</a> <a href="#production">Производство</a> <a href="#otzivi">Отзывы</a> <a href="#quiz">Рассчитать стоимость</a> <a href="#maps">Контакты</a> </nav> <div class="kh-menu-socials"> <a class="kh-social" href="https://t.me/konturdoma" target="_blank" rel="noopener" aria-label="Telegram"> <svg viewBox="0 0 24 24"> <path fill="currentColor" stroke="none" d="M21.6 3.2 18.5 19c-.23 1.11-.85 1.38-1.72.86l-4.72-3.48-2.28 2.19c-.25.25-.46.46-.95.46l.34-4.81 8.75-7.91c.38-.34-.08-.53-.59-.19L6.51 12.94l-4.66-1.46c-1.01-.32-1.03-1.01.21-1.5L20.28 2.96c.84-.31 1.58.19 1.32.24z"/> </svg> </a> <a class="kh-social kh-max-icon" href="https://max.ru/u/f9LHodD0cOKRh93IMHEVoDCXJ39RKqMl_SLq_2z0wa-dPY44P8ARM7fgqPw" target="_blank" rel="noopener" aria-label="MAX">
+        MAX
+      </a> <a class="kh-social" href="https://wa.me/79939699409" target="_blank" rel="noopener" aria-label="WhatsApp"> <svg viewBox="0 0 24 24"> <path fill="currentColor" stroke="none" d="M12.04 2a9.84 9.84 0 0 0-8.48 14.8L2.1 22l5.32-1.4A9.94 9.94 0 1 0 12.04 2zm0 17.98a8.08 8.08 0 0 1-4.12-1.13l-.3-.18-3.16.83.84-3.08-.2-.32a8.14 8.14 0 1 1 6.94 3.88zm4.46-6.08c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/> </svg> </a> </div> <a class="kh-menu-phone" href="tel:+79311071707">
+      +7 931 107-17-07
+    </a> <a class="kh-menu-callback" href="#popup:zvonok">
+      Перезвоните мне
+    </a> </div> </section> <script>
+(function(){
+
+  var hero = document.getElementById("kontur-hero");
+
+  if(!hero){
+    return;
+  }
+
+
+  /* MENU */
+
+  var burger = hero.querySelector(".kh-burger");
+  var fixedBurger = hero.querySelector(".kh-fixed-burger");
+  var fixedBar = hero.querySelector(".kh-mobile-fixedbar");
+  var close = hero.querySelector(".kh-close");
+
+  function updateFixedBar(){
+    if(!fixedBar) return;
+    if(window.innerWidth > 900){
+      fixedBar.classList.remove("kh-fixedbar-visible");
+      return;
+    }
+    var originalBurger = hero.querySelector(".kh-burger");
+    var triggerBottom = originalBurger
+      ? originalBurger.getBoundingClientRect().bottom
+      : hero.getBoundingClientRect().top + 80;
+
+    fixedBar.classList.toggle(
+      "kh-fixedbar-visible",
+      triggerBottom <= -50
+    );
+  }
+
+  window.addEventListener("scroll",updateFixedBar,{passive:true});
+  window.addEventListener("resize",updateFixedBar);
+  updateFixedBar();
+
+
+  function openMenu(){
+
+    hero.classList.add("menu-open");
+
+    document.body.style.overflow = "";
+  }
+
+
+  function closeMenu(){
+
+    hero.classList.remove("menu-open");
+
+    document.body.style.overflow = "";
+  }
+
+
+  if(burger){
+
+    burger.addEventListener(
+      "click",
+      openMenu
+    );
+  }
+
+
+  if(fixedBurger){
+    fixedBurger.addEventListener(
+      "click",
+      openMenu
+    );
+  }
+
+  if(close){
+
+    close.addEventListener(
+      "click",
+      closeMenu
+    );
+  }
+
+
+  hero
+    .querySelectorAll(".kh-mobile-menu a")
+    .forEach(function(link){
+
+      link.addEventListener(
+        "click",
+        closeMenu
+      );
+
+    });
+
+
+  /* PARALLAX ONLY MOBILE */
+
+  var photo = hero.querySelector(".kh-photo");
+
+  if(!photo){
+    return;
+  }
+
+
+  var ticking = false;
+  var mobileActive = false;
+
+
+  function resetDesktop(){
+
+    if(!mobileActive){
+      return;
+    }
+
+    photo.style.transform = "";
+    photo.style.willChange = "";
+
+    mobileActive = false;
+  }
+
+
+  function updateParallax(){
+
+    ticking = false;
+
+
+    if(window.innerWidth > 900){
+
+      resetDesktop();
+
+      return;
+    }
+
+
+    if(
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+    ){
+
+      photo.style.transform = "";
+      photo.style.willChange = "";
+
+      mobileActive = false;
+
+      return;
+    }
+
+
+    mobileActive = true;
+
+
+    var rect = hero.getBoundingClientRect();
+
+
+    if(
+      rect.bottom <= 0 ||
+      rect.top >= window.innerHeight
+    ){
+      return;
+    }
+
+
+    var scrolled =
+      Math.max(
+        0,
+        -rect.top
+      );
+
+
+    var offset =
+      Math.min(
+        scrolled * 0.08,
+        42
+      );
+
+
+    photo.style.willChange = "transform";
+
+    photo.style.transform =
+      "translate3d(0," +
+      offset.toFixed(2) +
+      "px,0) scale(1.08)";
+  }
+
+
+  function requestParallax(){
+
+    if(ticking){
+      return;
+    }
+
+    ticking = true;
+
+    requestAnimationFrame(
+      updateParallax
+    );
+  }
+
+
+  updateParallax();
+
+
+  window.addEventListener(
+    "scroll",
+    requestParallax,
+    {passive:true}
+  );
+
+
+  window.addEventListener(
+    "resize",
+    requestParallax,
+    {passive:true}
+  );
+
+})();
+</script>
