@@ -1,0 +1,28 @@
+{
+  "source_commit": "d543317e0b4f4402dd242102d2cd78181d00d588",
+  "assets_commit": "6184d4afc1d6f1fd527e08f2a5b7391c9468b11f",
+  "photos": [
+    {
+      "original": "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/Glanaya.webp",
+      "mobile": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/cover.webp",
+      "thumbnail": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/cover.webp"
+    },
+    {
+      "original": "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/22.webp",
+      "mobile": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/view-1.webp",
+      "thumbnail": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/view-1.webp"
+    },
+    {
+      "original": "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/33.webp",
+      "mobile": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/view-2.webp",
+      "thumbnail": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/view-2.webp"
+    },
+    {
+      "original": "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/3.png",
+      "mobile": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/plan.webp",
+      "thumbnail": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/plan.webp"
+    }
+  ],
+  "bytes": 64895,
+  "sha256": "ff15fbdda3e91673139ed5f7bc2e1448f6592a57a2a5b16a2b92cbc8df8bfcea"
+}

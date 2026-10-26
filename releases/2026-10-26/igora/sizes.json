@@ -1,0 +1,66 @@
+[
+  {
+    "source": "Glanaya.webp",
+    "key": "cover",
+    "original_bytes": 479568,
+    "original_size": [
+      1493,
+      1053
+    ],
+    "mobile_bytes": 151504,
+    "mobile_size": [
+      1080,
+      762
+    ],
+    "thumb_bytes": 9676,
+    "lossless_full_bytes": 492638
+  },
+  {
+    "source": "22.webp",
+    "key": "view-1",
+    "original_bytes": 649914,
+    "original_size": [
+      1448,
+      1086
+    ],
+    "mobile_bytes": 220310,
+    "mobile_size": [
+      1080,
+      810
+    ],
+    "thumb_bytes": 10788,
+    "lossless_full_bytes": 662610
+  },
+  {
+    "source": "33.webp",
+    "key": "view-2",
+    "original_bytes": 658964,
+    "original_size": [
+      1672,
+      941
+    ],
+    "mobile_bytes": 162262,
+    "mobile_size": [
+      1080,
+      608
+    ],
+    "thumb_bytes": 8130,
+    "lossless_full_bytes": 676784
+  },
+  {
+    "source": "3.png",
+    "key": "plan",
+    "original_bytes": 540692,
+    "original_size": [
+      1448,
+      1086
+    ],
+    "mobile_bytes": 166840,
+    "mobile_size": [
+      1080,
+      810
+    ],
+    "thumb_bytes": 10926,
+    "lossless_full_bytes": 479360
+  }
+]
