@@ -1,0 +1,3073 @@
+<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> <title>Популярные проекты домов</title> <style>
+/* =========================================================
+   КОНТУР - ПОПУЛЯРНЫЕ ПРОЕКТЫ
+   ВАРИАНТ 4
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #17211e;
+    background: #ffffff;
+}
+
+.kontur-projects {
+    font-family: "TildaSans", Arial, sans-serif;
+
+}
+
+body.kontur-modal-open {
+    overflow: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+
+/* =========================================================
+   СЕКЦИЯ
+========================================================= */
+
+.kontur-projects {
+    padding: 84px 24px 96px;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(9, 96, 65, 0.035),
+            transparent 34%
+        ),
+        #ffffff;
+}
+
+.kontur-projects__container {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   ЗАГОЛОВОК
+========================================================= */
+
+.kontur-projects__header {
+    max-width: 980px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.kontur-projects__title {
+    margin: 0 0 14px;
+    font-size: clamp(40px, 4.2vw, 66px);
+    line-height: 1.03;
+    font-weight: 600;
+    letter-spacing: -2.3px;
+    color: #17211e;
+}
+
+.kontur-projects__subtitle {
+    margin: 0 0 12px;
+    font-size: clamp(23px, 2vw, 34px);
+    line-height: 1.2;
+    font-weight: 500;
+    color: #26312d;
+}
+
+.kontur-projects__description {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.55;
+    color: #7a827f;
+}
+
+
+/* =========================================================
+   СЕТКА
+========================================================= */
+
+.kontur-projects__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================================================
+   КАРТОЧКА
+========================================================= */
+
+.kontur-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    border: 1px solid #e9eeeb;
+    border-radius: 24px;
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 40px rgba(22, 38, 32, 0.055),
+        0 2px 8px rgba(22, 38, 32, 0.025);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.kontur-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 55px rgba(22, 38, 32, 0.09),
+        0 4px 14px rgba(22, 38, 32, 0.04);
+}
+
+
+/* =========================================================
+   ФОТО КАРТОЧКИ
+========================================================= */
+
+.kontur-card__image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.55 / 1;
+    overflow: hidden;
+    background: #eef1ef;
+    cursor: pointer;
+}
+
+.kontur-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.kontur-card:hover .kontur-card__image {
+    transform: scale(1.025);
+}
+
+
+/* =========================================================
+   САМЫЙ ПОПУЛЯРНЫЙ
+========================================================= */
+
+.kontur-card__badge {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    z-index: 5;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+    padding: 0 17px;
+
+    border: 1.5px solid #096041;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    color: #096041;
+
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 600;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   КОНТЕНТ КАРТОЧКИ
+========================================================= */
+
+.kontur-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 27px 25px 24px;
+}
+
+.kontur-card__area {
+    margin: 0 0 14px;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: #17211e;
+}
+
+.kontur-card__area sup {
+    position: relative;
+    top: -0.2em;
+    font-size: 17px;
+}
+
+.kontur-card__text {
+    min-height: 74px;
+    margin: 0 0 23px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #737c78;
+}
+
+
+/* =========================================================
+   ХАРАКТЕРИСТИКИ КАРТОЧКИ
+========================================================= */
+
+.kontur-card__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px 19px;
+    margin: 0 0 27px;
+}
+
+.kontur-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    line-height: 1.3;
+    color: #59645f;
+    white-space: nowrap;
+}
+
+.kontur-feature svg {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+    stroke: #18362c;
+    stroke-width: 1.55;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   ПОДРОБНЕЕ
+========================================================= */
+
+.kontur-card__button {
+    width: 100%;
+    min-height: 56px;
+    margin-top: auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    border: 1.5px solid #096041;
+    border-radius: 30px;
+
+    background: transparent;
+    color: #096041;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.kontur-card__button:hover {
+    background: #f3f8f6;
+    border-color: #075238;
+    color: #075238;
+}
+
+.kontur-card__button svg {
+    width: 19px;
+    height: 19px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: transform 0.25s ease;
+}
+
+.kontur-card__button:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   POPUP ПРОЕКТА
+========================================================= */
+
+.kontur-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 999990;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(12, 19, 16, 0.76);
+}
+
+.kontur-modal.is-open {
+    display: flex;
+}
+
+
+/* =========================================================
+   ОКНО POPUP
+========================================================= */
+
+.kontur-modal__dialog {
+    position: relative;
+
+    width: min(1400px, 100%);
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    border-radius: 28px;
+    background: #ffffff;
+
+    box-shadow:
+        0 35px 110px rgba(0, 0, 0, 0.28);
+
+}
+
+
+/* =========================================================
+   КРЕСТИК POPUP - ВАРИАНТ 4
+========================================================= */
+
+.kontur-modal__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 100;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+
+    background: rgba(45, 48, 46, 0.76);
+    color: #ffffff;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.16);
+
+    cursor: pointer;
+}
+
+.kontur-modal__close svg {
+    width: 23px;
+    height: 23px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+
+/* =========================================================
+   СЕТКА POPUP
+========================================================= */
+
+.kontur-modal__grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(350px, 0.75fr);
+}
+
+
+/* =========================================================
+   ГАЛЕРЕЯ
+========================================================= */
+
+.kontur-gallery {
+    min-width: 0;
+    padding: 24px 12px 24px 24px;
+}
+
+.kontur-gallery__main {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1.48 / 1;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+    background: #edf0ee;
+
+    cursor: zoom-in;
+}
+
+.kontur-gallery__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   СТРЕЛКИ POPUP - ВАРИАНТ 4
+========================================================= */
+
+.kontur-gallery__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 50%;
+
+    background: rgba(45, 48, 46, 0.68);
+    color: #ffffff;
+
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.16);
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.kontur-gallery__arrow:hover {
+    background: rgba(35, 38, 36, 0.82);
+}
+
+.kontur-gallery__arrow--prev {
+    left: 18px;
+}
+
+.kontur-gallery__arrow--next {
+    right: 18px;
+}
+
+.kontur-gallery__arrow svg {
+    width: 23px;
+    height: 23px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   СЧЕТЧИК
+========================================================= */
+
+.kontur-gallery__counter {
+    position: absolute;
+    right: 18px;
+    bottom: 17px;
+    z-index: 5;
+
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    background: rgba(45, 48, 46, 0.72);
+    color: #ffffff;
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   МИНИАТЮРЫ
+========================================================= */
+
+.kontur-gallery__thumbs {
+    display: flex;
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 11px;
+    padding: 1px 0 5px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+}
+
+.kontur-gallery__thumb {
+    flex: 0 0 116px;
+
+    width: 116px;
+    height: 78px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 2px solid transparent;
+    border-radius: 14px;
+
+    background: #edf0ee;
+
+    opacity: 0.68;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.kontur-gallery__thumb:hover {
+    opacity: 0.9;
+}
+
+.kontur-gallery__thumb.is-active {
+    opacity: 1;
+    border-color: #096041;
+}
+
+.kontur-gallery__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   ИНФОРМАЦИЯ POPUP
+========================================================= */
+
+.kontur-modal__info {
+    min-width: 0;
+    padding: 72px 34px 38px 27px;
+}
+
+.kontur-modal__eyebrow {
+    margin: 0 0 10px;
+
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+
+    color: #096041;
+}
+
+.kontur-modal__title {
+    margin: 0 0 16px;
+
+    font-size: 37px;
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+
+    color: #17211e;
+}
+
+.kontur-modal__description {
+    margin: 0 0 28px;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: #747d79;
+}
+
+
+/* =========================================================
+   ХАРАКТЕРИСТИКИ POPUP
+========================================================= */
+
+.kontur-modal__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    margin: 0 0 29px;
+
+    overflow: hidden;
+
+    border: 1px solid #e7ece9;
+    border-radius: 20px;
+}
+
+.kontur-stat {
+    min-height: 82px;
+
+    padding: 18px 19px;
+
+    border-right: 1px solid #e7ece9;
+    border-bottom: 1px solid #e7ece9;
+}
+
+.kontur-stat:nth-child(2n) {
+    border-right: 0;
+}
+
+.kontur-stat:nth-last-child(-n + 2) {
+    border-bottom: 0;
+}
+
+.kontur-stat__label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 12px;
+    color: #89908d;
+}
+
+.kontur-stat__value {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    color: #1b2924;
+}
+
+
+/* =========================================================
+   ПЛАНИРОВКА
+========================================================= */
+
+.kontur-modal__layout-title {
+    margin: 0 0 14px;
+
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 600;
+
+    color: #17211e;
+}
+
+.kontur-modal__rooms {
+    width: 100%;
+}
+
+.kontur-room {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #edf0ee;
+
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.kontur-room:last-child {
+    border-bottom: 0;
+}
+
+.kontur-room__name {
+    color: #626c68;
+}
+
+.kontur-room__value {
+    flex: 0 0 auto;
+
+    font-weight: 600;
+    text-align: right;
+
+    color: #1d2925;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.kontur-modal__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 56px;
+
+    margin-top: 27px;
+    padding: 0 24px;
+
+    border: 1.5px solid #096041;
+    border-radius: 30px;
+
+    background: #096041;
+    color: #ffffff;
+
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.kontur-modal__cta:hover {
+    background: #075238;
+    border-color: #075238;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   FULLSCREEN
+========================================================= */
+
+.kontur-lightbox {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2147483000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(5, 8, 7, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease;
+
+    touch-action: none;
+}
+
+.kontur-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.kontur-lightbox__stage {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    cursor: zoom-in;
+}
+
+.kontur-lightbox.is-zoomed .kontur-lightbox__stage {
+    cursor: grab;
+}
+
+.kontur-lightbox.is-dragging .kontur-lightbox__stage {
+    cursor: grabbing;
+}
+
+.kontur-lightbox__image {
+    display: block;
+
+    max-width: 94vw;
+    max-height: 92vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+
+    transform-origin: center center;
+
+    transition: transform 0.18s ease;
+
+    will-change: transform;
+}
+
+.kontur-lightbox.is-dragging .kontur-lightbox__image {
+    transition: none;
+}
+
+
+/* =========================================================
+   FULLSCREEN - КНОПКИ ВАРИАНТ 4
+========================================================= */
+
+.kontur-lightbox__close,
+.kontur-lightbox__arrow,
+.kontur-lightbox__zoom-button {
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    background: rgba(45, 48, 46, 0.72);
+    color: #ffffff;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.kontur-lightbox__close {
+    position: absolute;
+
+    top: max(24px, calc(env(safe-area-inset-top) + 12px));
+    right: max(24px, calc(env(safe-area-inset-right) + 14px));
+
+    z-index: 30;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.kontur-lightbox__close svg {
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.kontur-lightbox__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 25;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+}
+
+.kontur-lightbox__arrow--prev {
+    left: 25px;
+}
+
+.kontur-lightbox__arrow--next {
+    right: 25px;
+}
+
+.kontur-lightbox__arrow svg {
+    width: 26px;
+    height: 26px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   FULLSCREEN COUNTER
+========================================================= */
+
+.kontur-lightbox__counter {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    z-index: 25;
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(45, 48, 46, 0.72);
+    color: #ffffff;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   FULLSCREEN ZOOM
+========================================================= */
+
+.kontur-lightbox__zoom {
+    position: absolute;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 30;
+
+    display: flex;
+    gap: 8px;
+}
+
+.kontur-lightbox__zoom-button {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1180px) {
+
+    .kontur-projects__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kontur-modal__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kontur-gallery {
+        padding: 18px 18px 5px;
+    }
+
+    .kontur-modal__info {
+        padding: 28px 30px 38px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .kontur-projects {
+        padding: 55px 14px 65px;
+    }
+
+    .kontur-projects__header {
+        margin-bottom: 32px;
+        text-align: left;
+    }
+
+    .kontur-projects__title {
+        font-size: 38px;
+        letter-spacing: -1.4px;
+    }
+
+    .kontur-projects__subtitle {
+        font-size: 24px;
+    }
+
+    .kontur-projects__description {
+        font-size: 16px;
+    }
+
+    .kontur-projects__grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .kontur-card {
+        border-radius: 20px;
+    }
+
+    .kontur-card__content {
+        padding: 23px 20px 20px;
+    }
+
+    .kontur-card__area {
+        font-size: 30px;
+    }
+
+    .kontur-card__text {
+        min-height: 0;
+    }
+
+
+    /* =====================================================
+       MOBILE POPUP
+    ===================================================== */
+
+    .kontur-modal {
+        align-items: flex-end;
+
+        padding:
+            max(8px, env(safe-area-inset-top))
+            0
+            0;
+    }
+
+    .kontur-modal__dialog {
+        width: 100%;
+
+        max-height: calc(
+            100dvh -
+            max(8px, env(safe-area-inset-top))
+        );
+
+        border-radius: 24px 24px 0 0;
+    }
+
+
+    /* =====================================================
+       КРЕСТИК ВСЕГДА ВИДЕН НА IPHONE
+    ===================================================== */
+
+    .kontur-modal__close {
+        position: fixed;
+
+        top: max(
+            12px,
+            calc(env(safe-area-inset-top) + 8px)
+        );
+
+        right: max(
+            14px,
+            calc(env(safe-area-inset-right) + 14px)
+        );
+
+        z-index: 2147482000;
+
+        width: 50px;
+        height: 50px;
+
+        background: rgba(45, 48, 46, 0.82);
+
+        border:
+            1px solid
+            rgba(255, 255, 255, 0.22);
+
+        color: #ffffff;
+
+        box-shadow:
+            0 5px 20px
+            rgba(0, 0, 0, 0.22);
+    }
+
+
+    /* =====================================================
+       MOBILE GALLERY
+    ===================================================== */
+
+    .kontur-gallery {
+        padding: 12px 12px 4px;
+    }
+
+    .kontur-gallery__main {
+        aspect-ratio: 1.25 / 1;
+        border-radius: 18px;
+    }
+
+    .kontur-gallery__arrow {
+        width: 48px;
+        height: 48px;
+
+        background:
+            rgba(45, 48, 46, 0.72);
+    }
+
+    .kontur-gallery__arrow--prev {
+        left: 10px;
+    }
+
+    .kontur-gallery__arrow--next {
+        right: 10px;
+    }
+
+    .kontur-gallery__arrow svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .kontur-gallery__thumb {
+        flex-basis: 92px;
+
+        width: 92px;
+        height: 62px;
+
+        border-radius: 11px;
+    }
+
+
+    /* =====================================================
+       MOBILE INFO
+    ===================================================== */
+
+    .kontur-modal__info {
+        padding: 25px 20px 32px;
+    }
+
+    .kontur-modal__title {
+        padding-right: 10px;
+        font-size: 30px;
+    }
+
+    .kontur-modal__description {
+        font-size: 15px;
+    }
+
+    .kontur-stat {
+        padding: 16px;
+    }
+
+    .kontur-stat__value {
+        font-size: 18px;
+    }
+
+
+    /* =====================================================
+       MOBILE FULLSCREEN
+    ===================================================== */
+
+    .kontur-lightbox__image {
+        max-width: 100vw;
+        max-height: 88vh;
+    }
+
+    .kontur-lightbox__close {
+        top: max(
+            12px,
+            calc(env(safe-area-inset-top) + 8px)
+        );
+
+        right: max(
+            14px,
+            calc(env(safe-area-inset-right) + 14px)
+        );
+
+        width: 50px;
+        height: 50px;
+
+        background:
+            rgba(45, 48, 46, 0.82);
+    }
+
+    .kontur-lightbox__arrow {
+        width: 50px;
+        height: 50px;
+
+        background:
+            rgba(45, 48, 46, 0.72);
+    }
+
+    .kontur-lightbox__arrow--prev {
+        left: 10px;
+    }
+
+    .kontur-lightbox__arrow--next {
+        right: 10px;
+    }
+
+    .kontur-lightbox__counter {
+        bottom:
+            max(
+                18px,
+                calc(env(safe-area-inset-bottom) + 10px)
+            );
+    }
+
+    .kontur-lightbox__zoom {
+        right:
+            max(
+                15px,
+                calc(env(safe-area-inset-right) + 10px)
+            );
+
+        bottom:
+            max(
+                15px,
+                calc(env(safe-area-inset-bottom) + 10px)
+            );
+    }
+
+    .kontur-lightbox__zoom-button {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .kontur-card__features {
+        gap: 12px;
+    }
+
+    .kontur-modal__stats {
+        grid-template-columns: 1fr;
+    }
+
+    .kontur-stat {
+        border-right: 0;
+        border-bottom:
+            1px solid #e7ece9 !important;
+    }
+
+    .kontur-stat:last-child {
+        border-bottom: 0 !important;
+    }
+
+    .kontur-lightbox__zoom {
+        display: none;
+    }
+}
+
+</style> <style>
+/* ЕДИНСТВЕННАЯ ПРАВКА - УБРАН БЛЮР/ПРИГЛУШЕНИЕ МИНИАТЮР */
+.kontur-gallery__thumb,
+.kontur-gallery__thumb:hover,
+.kontur-gallery__thumb.is-active,
+.kontur-gallery__thumb img,
+.kontur-gallery__thumb:hover img,
+.kontur-gallery__thumb.is-active img {
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
+}
+</style> <style>
+/* ДУБЛЬ 9 - эталон без изменений, только положение шевронов */
+.kontur-gallery__arrow--prev svg,
+.kontur-lightbox__arrow--prev svg { transform:translateX(-2px) !important; }
+
+.kontur-gallery__arrow--next svg,
+.kontur-lightbox__arrow--next svg { transform:translateX(2px) !important; }
+</style> <style>
+/* Shared content edges with the project description. */
+#konturProjectModal .kontur-gallery{padding-left:27px;padding-right:34px}
+@media(max-width:1180px){#konturProjectModal .kontur-gallery{padding-left:30px;padding-right:30px}}
+@media(max-width:760px){#konturProjectModal .kontur-gallery{padding-left:20px;padding-right:20px}}
+</style>
+</head> <body> <!-- =========================================================
+     ПОПУЛЯРНЫЕ ПРОЕКТЫ
+========================================================= --> <section class="kontur-projects"> <div class="kontur-projects__container"> <header class="kontur-projects__header"> <h2 class="kontur-projects__title">
+Популярные проекты домов
+</h2> <div class="kontur-projects__subtitle">
+Строим объекты любой сложности
+</div> <p class="kontur-projects__description">
+Готовые решения или индивидуальные проекты для жизни, отдыха и бизнеса.
+</p> </header> <div class="kontur-projects__grid"> <!-- =================================================
+     ПРОЕКТ 1
+================================================== --> <article class="kontur-card"> <div
+    class="kontur-card__image-wrap"
+    data-kontur-project="sosnovka"
+    role="button"
+    tabindex="0"
+> <img
+    class="kontur-card__image"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    data-kontur-original="https://raw.githubusercontent.com/davaygazu/kontur-images/ad287e195914a5ffacd7930cd7869b85406c5d37/projects/populyarnye-proekty/igora/Glanaya_1.webp"
+    data-kontur-mobile="https://raw.githubusercontent.com/davaygazu/kontur-images/094269c2beac253fa24430ee74c56653d1cb74d2/assets/popular-igora-20261026-v2/cover.webp"
+    width="1448" height="1086" decoding="async" fetchpriority="low"
+    alt="Дом из клееного бруса площадью 83,52 м²"
+> </div> <div class="kontur-card__content"> <div class="kontur-card__area">
+83,52 м<sup>2</sup> </div> <p class="kontur-card__text">
+Одноэтажный дом с двумя спальнями, антресолями и просторной кухней-гостиной.
+</p> <div class="kontur-card__features"> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M3 12v7M21 12v7M3 16h18M5 12V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/> </svg>
+
+2 спальни
+
+</div> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20V9l8-5 8 5v11M8 20v-6h8v6"/> </svg>
+
+кухня-гостиная
+
+</div> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20v-8M20 20v-8M2 12h20M6 12V8h12v4"/> </svg>
+
+терраса
+
+</div> </div> <button
+    type="button"
+    class="kontur-card__button"
+    data-kontur-project="sosnovka"
+>
+
+Подробнее
+
+<svg viewBox="0 0 24 24"> <path d="M5 12h14M13 6l6 6-6 6"/> </svg> </button> </div> </article> <!-- =================================================
+     ПРОЕКТ 2
+================================================== --> <article class="kontur-card"> <div
+    class="kontur-card__image-wrap"
+    data-kontur-project="leon"
+    role="button"
+    tabindex="0"
+> <div class="kontur-card__badge">
+Самый популярный
+</div> <img
+    class="kontur-card__image"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    data-kontur-original="https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/glavnaya.webp"
+    data-kontur-mobile="https://raw.githubusercontent.com/davaygazu/kontur-images/c345a930789c15f59e3eb426186da13ee885505c/assets/remaining-mobile/leon.webp"
+    width="1448" height="1086" decoding="async" fetchpriority="low"
+    alt="Дом из клееного бруса площадью 125,48 м²"
+> </div> <div class="kontur-card__content"> <div class="kontur-card__area">
+125,48 м<sup>2</sup> </div> <p class="kontur-card__text">
+Двухэтажный дом со вторым светом, панорамным остеклением и просторной кухней-гостиной.
+</p> <div class="kontur-card__features"> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20v-8M20 20v-8M2 12h20M6 12V8h12v4"/> </svg>
+
+3 спальни
+
+</div> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20V9l8-5 8 5v11M8 20v-6h8v6"/> </svg>
+
+кухня-гостиная
+
+</div> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20v-8M20 20v-8M2 12h20M6 12V8h12v4"/> </svg>
+
+терраса
+
+</div> </div> <button
+    type="button"
+    class="kontur-card__button"
+    data-kontur-project="leon"
+>
+
+Подробнее
+
+<svg viewBox="0 0 24 24"> <path d="M5 12h14M13 6l6 6-6 6"/> </svg> </button> </div> </article> <!-- =================================================
+     ПРОЕКТ 3
+================================================== --> <article class="kontur-card"> <div
+    class="kontur-card__image-wrap"
+    data-kontur-project="quartsi"
+    role="button"
+    tabindex="0"
+> <img
+    class="kontur-card__image"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    data-kontur-original="https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/glavnaya.webp"
+    data-kontur-mobile="https://raw.githubusercontent.com/davaygazu/kontur-images/c345a930789c15f59e3eb426186da13ee885505c/assets/remaining-mobile/kvartsi.webp"
+    width="1448" height="1086" decoding="async" fetchpriority="low"
+    alt="Дом из клееного бруса площадью 141,80 м²"
+> </div> <div class="kontur-card__content"> <div class="kontur-card__area">
+141,80 м<sup>2</sup> </div> <p class="kontur-card__text">
+Просторный двухэтажный дом для большой семьи с большой кухней-гостиной.
+</p> <div class="kontur-card__features"> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M3 12v7M21 12v7M3 16h18M5 12V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/> </svg>
+
+4 спальни
+
+</div> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20V9l8-5 8 5v11M8 20v-6h8v6"/> </svg>
+
+кухня-гостиная
+
+</div> <div class="kontur-feature"> <svg viewBox="0 0 24 24"> <path d="M4 20v-8M20 20v-8M2 12h20M6 12V8h12v4"/> </svg>
+
+2 террасы
+
+</div> </div> <button
+    type="button"
+    class="kontur-card__button"
+    data-kontur-project="quartsi"
+>
+
+Подробнее
+
+<svg viewBox="0 0 24 24"> <path d="M5 12h14M13 6l6 6-6 6"/> </svg> </button> </div> </article> </div> </div> </section> <!-- =========================================================
+     POPUP ПРОЕКТА
+========================================================= --> <div
+    class="kontur-modal"
+    id="konturProjectModal"
+    aria-hidden="true"
+> <div
+    class="kontur-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+> <button
+    type="button"
+    class="kontur-modal__close"
+    id="konturModalClose"
+    aria-label="Закрыть"
+> <svg viewBox="0 0 24 24"> <path d="M6 6l12 12M18 6L6 18"/> </svg> </button> <div class="kontur-modal__grid"> <div class="kontur-gallery"> <div
+    class="kontur-gallery__main"
+    id="konturGalleryMain"
+> <img
+    class="kontur-gallery__image"
+    id="konturModalImage"
+    src=""
+    alt=""
+> <button
+    type="button"
+    class="kontur-gallery__arrow kontur-gallery__arrow--prev"
+    id="konturModalPrev"
+> <svg viewBox="0 0 24 24"> <path d="M15 18l-6-6 6-6"/> </svg> </button> <button
+    type="button"
+    class="kontur-gallery__arrow kontur-gallery__arrow--next"
+    id="konturModalNext"
+> <svg viewBox="0 0 24 24"> <path d="M9 18l6-6-6-6"/> </svg> </button> <div
+    class="kontur-gallery__counter"
+    id="konturModalCounter"
+>
+1 / 1
+</div> </div> <div
+    class="kontur-gallery__thumbs"
+    id="konturModalThumbs"
+></div> </div> <div class="kontur-modal__info"> <div class="kontur-modal__eyebrow">
+Проект дома
+</div> <h3
+    class="kontur-modal__title"
+    id="konturModalTitle"
+></h3> <p
+    class="kontur-modal__description"
+    id="konturModalDescription"
+></p> <div
+    class="kontur-modal__stats"
+    id="konturModalStats"
+></div> <div class="kontur-modal__layout"> <h4 class="kontur-modal__layout-title">
+Планировка
+</h4> <div
+    class="kontur-modal__rooms"
+    id="konturModalRooms"
+></div> </div> <a
+    href="#popup:myform"
+    class="kontur-modal__cta"
+    id="konturModalCTA"
+>
+Хочу такой дом
+</a> </div> </div> </div> </div> <!-- =========================================================
+     FULLSCREEN
+========================================================= --> <div
+    class="kontur-lightbox"
+    id="konturLightbox"
+    aria-hidden="true"
+> <div
+    class="kontur-lightbox__stage"
+    id="konturLightboxStage"
+> <img
+    class="kontur-lightbox__image"
+    id="konturLightboxImage"
+    src=""
+    alt=""
+    draggable="false"
+> </div> <button
+    type="button"
+    class="kontur-lightbox__close"
+    id="konturLightboxClose"
+> <svg viewBox="0 0 24 24"> <path d="M6 6l12 12M18 6L6 18"/> </svg> </button> <button
+    type="button"
+    class="kontur-lightbox__arrow kontur-lightbox__arrow--prev"
+    id="konturLightboxPrev"
+> <svg viewBox="0 0 24 24"> <path d="M15 18l-6-6 6-6"/> </svg> </button> <button
+    type="button"
+    class="kontur-lightbox__arrow kontur-lightbox__arrow--next"
+    id="konturLightboxNext"
+> <svg viewBox="0 0 24 24"> <path d="M9 18l6-6-6-6"/> </svg> </button> <div
+    class="kontur-lightbox__counter"
+    id="konturLightboxCounter"
+>
+1 / 1
+</div> <div class="kontur-lightbox__zoom"> <button
+    type="button"
+    class="kontur-lightbox__zoom-button"
+    id="konturZoomOut"
+>
+−
+</button> <button
+    type="button"
+    class="kontur-lightbox__zoom-button"
+    id="konturZoomIn"
+>
++
+</button> </div> </div> <script>
+(function () {
+
+"use strict";
+
+
+/* =====================================================
+   ДАННЫЕ ПРОЕКТОВ
+===================================================== */
+
+
+const mobileCovers = {"https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/glavnaya.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/c345a930789c15f59e3eb426186da13ee885505c/assets/remaining-mobile/leon.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/glavnaya.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/c345a930789c15f59e3eb426186da13ee885505c/assets/remaining-mobile/kvartsi.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/ad287e195914a5ffacd7930cd7869b85406c5d37/projects/populyarnye-proekty/igora/Glanaya_1.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/094269c2beac253fa24430ee74c56653d1cb74d2/assets/popular-igora-20261026-v2/cover.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/22.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/view-1.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/33.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/view-2.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/3.png": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/mobile/plan.webp"};
+const igoraThumbnails = {"https://raw.githubusercontent.com/davaygazu/kontur-images/ad287e195914a5ffacd7930cd7869b85406c5d37/projects/populyarnye-proekty/igora/Glanaya_1.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/094269c2beac253fa24430ee74c56653d1cb74d2/assets/popular-igora-20261026-v2/thumb.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/22.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/view-1.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/33.webp": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/view-2.webp", "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/3.png": "https://raw.githubusercontent.com/davaygazu/kontur-images/6184d4afc1d6f1fd527e08f2a5b7391c9468b11f/assets/popular-igora-20261026/thumbs/plan.webp"};
+function previewSource(src) {
+    return window.matchMedia("(max-width: 900px)").matches && mobileCovers[src] || src;
+}
+const coverImages = Array.from(document.querySelectorAll(".kontur-card__image[data-kontur-original]"));
+function loadCover(img) {
+    const src = previewSource(img.dataset.konturOriginal);
+    if (img.getAttribute("src") === src) return;
+    img.dataset.konturLoaded = "1";
+    img.onerror = function () {
+        img.onerror = null;
+        if (img.getAttribute("src") !== img.dataset.konturOriginal) img.src = img.dataset.konturOriginal;
+    };
+    img.src = src;
+}
+if ("IntersectionObserver" in window) {
+    const coverObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) { loadCover(entry.target); coverObserver.unobserve(entry.target); }
+        });
+    }, {rootMargin: "400px 0px"});
+    coverImages.forEach(function (img) { coverObserver.observe(img); });
+} else { coverImages.forEach(loadCover); }
+window.matchMedia("(max-width: 900px)").addEventListener("change", function () {
+    coverImages.forEach(function (img) { if (img.dataset.konturLoaded) loadCover(img); });
+});
+
+const projects = {
+
+
+sosnovka: {
+
+    title: "Дом 83,52 м²",
+
+    description:
+        "Одноэтажный дом из клееного бруса с двумя спальнями, антресолями и просторной кухней-гостиной.",
+
+    area: "83,52 м²",
+    bedrooms: "2",
+    floors: "1",
+    terraces: "1",
+
+    images: [
+    "https://raw.githubusercontent.com/davaygazu/kontur-images/ad287e195914a5ffacd7930cd7869b85406c5d37/projects/populyarnye-proekty/igora/Glanaya_1.webp",
+    "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/22.webp",
+    "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/33.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/d543317e0b4f4402dd242102d2cd78181d00d588/projects/populyarnye-proekty/igora/3.png"
+    ],
+
+    rooms: [
+        ["Кухня-гостиная-столовая", "31,56 м²"],
+        ["Спальня с антресолью", "10,78 + 4,41 м²"],
+        ["Спальня с антресолью", "10,67 + 4,33 м²"],
+        ["Гардеробная", "4,85 м²"],
+        ["Ванная", "5,79 м²"],
+        ["Коридор", "6,27 м²"],
+        ["Техническое помещение", "3,00 м²"]
+    ]
+
+},
+
+
+leon: {
+
+    title: "Дом 125,48 м²",
+
+    description:
+        "Двухэтажный дом из клееного бруса со вторым светом, панорамным остеклением и просторной кухней-гостиной.",
+
+    area: "125,48 м²",
+    bedrooms: "3",
+    floors: "2",
+    terraces: "1",
+
+    images: [
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/glavnaya.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/1.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/2.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/3.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/leon/4.webp"
+    ],
+
+    rooms: [
+        ["Кухня-гостиная", "29,40 м²"],
+        ["Спальня - 1 этаж", "14,98 м²"],
+        ["Спальня - 2 этаж", "14,38 м²"],
+        ["Спальня - 2 этаж", "14,38 м²"],
+        ["Санузел - 1 этаж", "8,87 м²"],
+        ["Санузел - 2 этаж", "5,83 м²"],
+        ["Холл с лестницей", "15,79 м²"],
+        ["Техническое помещение", "6,00 м²"]
+    ]
+
+},
+
+
+quartsi: {
+
+    title: "Дом 141,80 м²",
+
+    description:
+        "Просторный двухэтажный дом из клееного бруса для большой семьи с четырьмя спальнями, кухней-гостиной и двумя террасами.",
+
+    area: "141,80 м²",
+    bedrooms: "4",
+    floors: "2",
+    terraces: "2",
+
+    images: [
+                "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/glavnaya.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/1.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/2.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/3.webp",
+        "https://raw.githubusercontent.com/davaygazu/kontur-images/main/projects/populyarnye-proekty/kvartsi/4.webp"
+    ],
+
+    rooms: [
+        ["Гостиная", "36,11 м²"],
+        ["Спальня", "19,24 м²"],
+        ["Спальня", "14,92 м²"],
+        ["Спальня", "10,20 м²"],
+        ["Спальня", "10,20 м²"],
+        ["Гардеробная", "5,32 м²"],
+        ["Ванная", "7,14 м²"],
+        ["Санузел", "3,91 м²"],
+        ["Холл - 1 этаж", "8,20 м²"],
+        ["Холл - 2 этаж", "10,38 м²"],
+        ["Техническое помещение", "4,49 м²"]
+    ]
+
+}
+
+};
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const modal =
+    document.getElementById("konturProjectModal");
+
+const dialog =
+    modal.querySelector(".kontur-modal__dialog");
+
+const closeButton =
+    document.getElementById("konturModalClose");
+
+const galleryMain =
+    document.getElementById("konturGalleryMain");
+
+const mainImage =
+    document.getElementById("konturModalImage");
+
+const title =
+    document.getElementById("konturModalTitle");
+
+const description =
+    document.getElementById("konturModalDescription");
+
+const stats =
+    document.getElementById("konturModalStats");
+
+const rooms =
+    document.getElementById("konturModalRooms");
+
+const thumbs =
+    document.getElementById("konturModalThumbs");
+
+const counter =
+    document.getElementById("konturModalCounter");
+
+const prevButton =
+    document.getElementById("konturModalPrev");
+
+const nextButton =
+    document.getElementById("konturModalNext");
+
+const cta =
+    document.getElementById("konturModalCTA");
+
+
+let currentProject = null;
+let currentIndex = 0;
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+const lightbox =
+    document.getElementById("konturLightbox");
+
+const lightboxStage =
+    document.getElementById("konturLightboxStage");
+
+const lightboxImage =
+    document.getElementById("konturLightboxImage");
+
+const lightboxClose =
+    document.getElementById("konturLightboxClose");
+
+const lightboxPrev =
+    document.getElementById("konturLightboxPrev");
+
+const lightboxNext =
+    document.getElementById("konturLightboxNext");
+
+const lightboxCounter =
+    document.getElementById("konturLightboxCounter");
+
+const zoomInButton =
+    document.getElementById("konturZoomIn");
+
+const zoomOutButton =
+    document.getElementById("konturZoomOut");
+
+
+let zoom = 1;
+let translateX = 0;
+let translateY = 0;
+
+let dragging = false;
+
+let dragStartX = 0;
+let dragStartY = 0;
+
+let dragOriginX = 0;
+let dragOriginY = 0;
+
+
+/* =====================================================
+   SHOW IMAGE
+===================================================== */
+
+function showImage(index) {
+
+    if (!currentProject) {
+        return;
+    }
+
+    const images =
+        currentProject.images;
+
+    if (index < 0) {
+        index = images.length - 1;
+    }
+
+    if (index >= images.length) {
+        index = 0;
+    }
+
+    currentIndex = index;
+
+    mainImage.src =
+        previewSource(images[currentIndex]);
+
+    mainImage.alt =
+        currentProject.title;
+
+    counter.textContent =
+        (currentIndex + 1) +
+        " / " +
+        images.length;
+
+
+    const allThumbs =
+        thumbs.querySelectorAll(
+            ".kontur-gallery__thumb"
+        );
+
+
+    allThumbs.forEach(
+        function (thumb, i) {
+
+            thumb.classList.toggle(
+                "is-active",
+                i === currentIndex
+            );
+
+        }
+    );
+
+
+    const activeThumb =
+        allThumbs[currentIndex];
+
+
+    if (activeThumb && modal.classList.contains("is-open")) {
+
+        activeThumb.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        });
+
+    }
+
+
+    if (
+        lightbox.classList.contains(
+            "is-open"
+        )
+    ) {
+
+        updateLightboxImage();
+
+    }
+
+}
+
+
+/* =====================================================
+   THUMBS
+===================================================== */
+
+function createThumbs() {
+
+    thumbs.innerHTML = "";
+
+    currentProject.images.forEach(
+        function (src, index) {
+
+            const button =
+                document.createElement("button");
+
+            button.type = "button";
+
+            button.className =
+                "kontur-gallery__thumb";
+
+
+            const image =
+                document.createElement("img");
+
+            image.src = igoraThumbnails[src] || previewSource(src);
+            image.alt = "";
+            image.loading = "lazy";
+
+
+            button.appendChild(image);
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    showImage(index);
+
+                }
+            );
+
+
+            thumbs.appendChild(button);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function createStats() {
+
+stats.innerHTML = `
+
+<div class="kontur-stat"> <span class="kontur-stat__label">
+Площадь
+</span> <div class="kontur-stat__value">
+${currentProject.area}
+</div> </div> <div class="kontur-stat"> <span class="kontur-stat__label">
+Спален
+</span> <div class="kontur-stat__value">
+${currentProject.bedrooms}
+</div> </div> <div class="kontur-stat"> <span class="kontur-stat__label">
+Этажей
+</span> <div class="kontur-stat__value">
+${currentProject.floors}
+</div> </div> <div class="kontur-stat"> <span class="kontur-stat__label">
+Террас
+</span> <div class="kontur-stat__value">
+${currentProject.terraces}
+</div> </div>
+
+`;
+
+}
+
+
+/* =====================================================
+   ROOMS
+===================================================== */
+
+function createRooms() {
+
+    rooms.innerHTML = "";
+
+    currentProject.rooms.forEach(
+        function (room) {
+
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "kontur-room";
+
+
+            const name =
+                document.createElement("span");
+
+            name.className =
+                "kontur-room__name";
+
+            name.textContent =
+                room[0];
+
+
+            const value =
+                document.createElement("span");
+
+            value.className =
+                "kontur-room__value";
+
+            value.textContent =
+                room[1];
+
+
+            row.appendChild(name);
+            row.appendChild(value);
+
+            rooms.appendChild(row);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   OPEN PROJECT
+===================================================== */
+
+function openProject(projectKey) {
+
+    if (!projects[projectKey]) {
+        return;
+    }
+
+    currentProject =
+        projects[projectKey];
+
+    currentIndex = 0;
+
+    title.textContent =
+        currentProject.title;
+
+    description.textContent =
+        currentProject.description;
+
+    createStats();
+    createRooms();
+    createThumbs();
+
+    showImage(0);
+
+    modal.classList.add("is-open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add(
+        "kontur-modal-open"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE PROJECT
+===================================================== */
+
+function closeProject() {
+
+    if (
+        lightbox.classList.contains(
+            "is-open"
+        )
+    ) {
+
+        closeLightbox();
+
+    }
+
+    modal.classList.remove(
+        "is-open"
+    );
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove(
+        "kontur-modal-open"
+    );
+
+    currentProject = null;
+
+}
+
+
+/* =====================================================
+   PROJECT TRIGGERS
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        const trigger =
+            event.target.closest(
+                "[data-kontur-project]"
+            );
+
+        if (!trigger) {
+            return;
+        }
+
+        event.preventDefault();
+
+        openProject(
+            trigger.getAttribute(
+                "data-kontur-project"
+            )
+        );
+
+    }
+);
+
+
+/* =====================================================
+   KEYBOARD CARD
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        const trigger =
+            event.target.closest(
+                ".kontur-card__image-wrap[data-kontur-project]"
+            );
+
+        if (!trigger) {
+            return;
+        }
+
+        if (
+            event.key !== "Enter" &&
+            event.key !== " "
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        openProject(
+            trigger.getAttribute(
+                "data-kontur-project"
+            )
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE
+===================================================== */
+
+closeButton.addEventListener(
+    "click",
+    function () {
+
+        closeProject();
+
+    }
+);
+
+
+modal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === modal) {
+
+            closeProject();
+
+        }
+
+    }
+);
+
+
+dialog.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+    }
+);
+
+
+/* =====================================================
+   PROJECT ARROWS
+===================================================== */
+
+prevButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        showImage(
+            currentIndex - 1
+        );
+
+    }
+);
+
+
+nextButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        showImage(
+            currentIndex + 1
+        );
+
+    }
+);
+
+
+/* =====================================================
+   OPEN FULLSCREEN
+===================================================== */
+
+galleryMain.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target.closest(
+                ".kontur-gallery__arrow"
+            )
+        ) {
+            return;
+        }
+
+        openLightbox();
+
+    }
+);
+
+
+/* =====================================================
+   ZOOM
+===================================================== */
+
+function resetZoom() {
+
+    zoom = 1;
+
+    translateX = 0;
+    translateY = 0;
+
+    updateTransform();
+
+}
+
+
+function updateTransform() {
+
+    lightboxImage.style.transform =
+        "translate(" +
+        translateX +
+        "px, " +
+        translateY +
+        "px) scale(" +
+        zoom +
+        ")";
+
+
+    lightbox.classList.toggle(
+        "is-zoomed",
+        zoom > 1
+    );
+
+}
+
+
+function updateLightboxImage() {
+
+    if (!currentProject) {
+        return;
+    }
+
+    lightboxImage.src =
+        currentProject.images[
+            currentIndex
+        ];
+
+    lightboxImage.alt =
+        currentProject.title;
+
+    lightboxCounter.textContent =
+        (currentIndex + 1) +
+        " / " +
+        currentProject.images.length;
+
+    resetZoom();
+
+}
+
+
+function openLightbox() {
+
+    if (!currentProject) {
+        return;
+    }
+
+    updateLightboxImage();
+
+    lightbox.classList.add(
+        "is-open"
+    );
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+function closeLightbox() {
+
+    lightbox.classList.remove(
+        "is-open"
+    );
+
+    lightbox.classList.remove(
+        "is-dragging"
+    );
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    dragging = false;
+
+    resetZoom();
+
+}
+
+
+/* =====================================================
+   LIGHTBOX ARROWS
+===================================================== */
+
+lightboxPrev.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        showImage(
+            currentIndex - 1
+        );
+
+    }
+);
+
+
+lightboxNext.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        showImage(
+            currentIndex + 1
+        );
+
+    }
+);
+
+
+lightboxClose.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        closeLightbox();
+
+    }
+);
+
+
+/* =====================================================
+   CHANGE ZOOM
+===================================================== */
+
+function changeZoom(amount) {
+
+    zoom += amount;
+
+    if (zoom < 1) {
+        zoom = 1;
+    }
+
+    if (zoom > 4) {
+        zoom = 4;
+    }
+
+    if (zoom === 1) {
+
+        translateX = 0;
+        translateY = 0;
+
+    }
+
+    updateTransform();
+
+}
+
+
+zoomInButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        changeZoom(0.5);
+
+    }
+);
+
+
+zoomOutButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        changeZoom(-0.5);
+
+    }
+);
+
+
+/* =====================================================
+   WHEEL
+===================================================== */
+
+lightboxStage.addEventListener(
+    "wheel",
+    function (event) {
+
+        if (
+            !lightbox.classList.contains(
+                "is-open"
+            )
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        if (event.deltaY < 0) {
+
+            changeZoom(0.25);
+
+        } else {
+
+            changeZoom(-0.25);
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* =====================================================
+   DOUBLE CLICK
+===================================================== */
+
+lightboxStage.addEventListener(
+    "dblclick",
+    function (event) {
+
+        event.preventDefault();
+
+        if (zoom === 1) {
+
+            zoom = 2;
+
+        } else {
+
+            zoom = 1;
+
+            translateX = 0;
+            translateY = 0;
+
+        }
+
+        updateTransform();
+
+    }
+);
+
+
+/* =====================================================
+   DRAG
+===================================================== */
+
+lightboxImage.addEventListener(
+    "pointerdown",
+    function (event) {
+
+        if (zoom <= 1) {
+            return;
+        }
+
+        dragging = true;
+
+        dragStartX =
+            event.clientX;
+
+        dragStartY =
+            event.clientY;
+
+        dragOriginX =
+            translateX;
+
+        dragOriginY =
+            translateY;
+
+        lightbox.classList.add(
+            "is-dragging"
+        );
+
+        lightboxImage.setPointerCapture(
+            event.pointerId
+        );
+
+    }
+);
+
+
+lightboxImage.addEventListener(
+    "pointermove",
+    function (event) {
+
+        if (!dragging) {
+            return;
+        }
+
+        translateX =
+            dragOriginX +
+            event.clientX -
+            dragStartX;
+
+        translateY =
+            dragOriginY +
+            event.clientY -
+            dragStartY;
+
+        updateTransform();
+
+    }
+);
+
+
+function stopDragging() {
+
+    dragging = false;
+
+    lightbox.classList.remove(
+        "is-dragging"
+    );
+
+}
+
+
+lightboxImage.addEventListener(
+    "pointerup",
+    stopDragging
+);
+
+lightboxImage.addEventListener(
+    "pointercancel",
+    stopDragging
+);
+
+
+/* =====================================================
+   LIGHTBOX BACKGROUND
+===================================================== */
+
+lightbox.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target === lightbox ||
+            event.target === lightboxStage
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            lightbox.classList.contains(
+                "is-open"
+            )
+        ) {
+
+            if (event.key === "Escape") {
+
+                closeLightbox();
+                return;
+
+            }
+
+            if (event.key === "ArrowLeft") {
+
+                showImage(
+                    currentIndex - 1
+                );
+
+                return;
+
+            }
+
+            if (event.key === "ArrowRight") {
+
+                showImage(
+                    currentIndex + 1
+                );
+
+                return;
+
+            }
+
+            if (
+                event.key === "+" ||
+                event.key === "="
+            ) {
+
+                changeZoom(0.5);
+                return;
+
+            }
+
+            if (event.key === "-") {
+
+                changeZoom(-0.5);
+                return;
+
+            }
+
+        }
+
+
+        if (
+            !modal.classList.contains(
+                "is-open"
+            )
+        ) {
+            return;
+        }
+
+
+        if (event.key === "Escape") {
+
+            closeProject();
+
+        }
+
+        if (event.key === "ArrowLeft") {
+
+            showImage(
+                currentIndex - 1
+            );
+
+        }
+
+        if (event.key === "ArrowRight") {
+
+            showImage(
+                currentIndex + 1
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SWIPE PROJECT
+===================================================== */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+mainImage.addEventListener(
+    "touchstart",
+    function (event) {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+mainImage.addEventListener(
+    "touchend",
+    function (event) {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        const difference =
+            touchStartX -
+            touchEndX;
+
+        if (
+            Math.abs(difference) < 45
+        ) {
+            return;
+        }
+
+        if (difference > 0) {
+
+            showImage(
+                currentIndex + 1
+            );
+
+        } else {
+
+            showImage(
+                currentIndex - 1
+            );
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =====================================================
+   FULLSCREEN TOUCH
+===================================================== */
+
+let lightboxTouchStartX = 0;
+
+let pinchStartDistance = 0;
+let pinchStartZoom = 1;
+
+
+function getTouchDistance(touches) {
+
+    const x =
+        touches[0].clientX -
+        touches[1].clientX;
+
+    const y =
+        touches[0].clientY -
+        touches[1].clientY;
+
+    return Math.sqrt(
+        x * x + y * y
+    );
+
+}
+
+
+lightboxStage.addEventListener(
+    "touchstart",
+    function (event) {
+
+        if (
+            event.touches.length === 1
+        ) {
+
+            lightboxTouchStartX =
+                event.touches[0].clientX;
+
+        }
+
+        if (
+            event.touches.length === 2
+        ) {
+
+            pinchStartDistance =
+                getTouchDistance(
+                    event.touches
+                );
+
+            pinchStartZoom =
+                zoom;
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+lightboxStage.addEventListener(
+    "touchmove",
+    function (event) {
+
+        if (
+            event.touches.length === 2
+        ) {
+
+            event.preventDefault();
+
+            const distance =
+                getTouchDistance(
+                    event.touches
+                );
+
+            let newZoom =
+                pinchStartZoom *
+                (
+                    distance /
+                    pinchStartDistance
+                );
+
+            if (newZoom < 1) {
+                newZoom = 1;
+            }
+
+            if (newZoom > 4) {
+                newZoom = 4;
+            }
+
+            zoom = newZoom;
+
+            if (zoom === 1) {
+
+                translateX = 0;
+                translateY = 0;
+
+            }
+
+            updateTransform();
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+lightboxStage.addEventListener(
+    "touchend",
+    function (event) {
+
+        if (zoom > 1) {
+            return;
+        }
+
+        if (
+            event.changedTouches.length !== 1
+        ) {
+            return;
+        }
+
+        const endX =
+            event.changedTouches[0].clientX;
+
+        const difference =
+            lightboxTouchStartX -
+            endX;
+
+        if (
+            Math.abs(difference) < 55
+        ) {
+            return;
+        }
+
+        if (difference > 0) {
+
+            showImage(
+                currentIndex + 1
+            );
+
+        } else {
+
+            showImage(
+                currentIndex - 1
+            );
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =====================================================
+   TILDA POPUP
+   ПРОЕКТ НЕ ЗАКРЫВАЕМ
+===================================================== */
+
+cta.addEventListener(
+    "click",
+    function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+
+        var tildaPopupLink =
+            document.querySelector(
+                'a[href="#popup:myform"]:not(#konturModalCTA)'
+            );
+
+
+        if (tildaPopupLink) {
+
+            tildaPopupLink.click();
+
+            return;
+
+        }
+
+
+        window.location.hash = "";
+
+
+        setTimeout(
+            function () {
+
+                window.location.hash =
+                    "popup:myform";
+
+            },
+            50
+        );
+
+    }
+);
+
+
+})();
+</script> <style>
+/* ДУБЛЬ 10 - плавный pinch на мобильном fullscreen */
+@media (max-width:760px){
+    .kontur-lightbox.is-pinching .kontur-lightbox__image{
+        transition:none !important;
+    }
+}
+</style> <script>
+/* ДУБЛЬ 10 - во время pinch отключаем transition, после отпускания возвращаем */
+(function(){
+    const stage = document.getElementById("konturLightboxStage");
+    const lightbox = document.getElementById("konturLightbox");
+    if(!stage || !lightbox) return;
+
+    stage.addEventListener("touchstart", function(event){
+        if(event.touches.length === 2){
+            lightbox.classList.add("is-pinching");
+        }
+    }, {passive:true});
+
+    stage.addEventListener("touchend", function(event){
+        if(event.touches.length < 2){
+            lightbox.classList.remove("is-pinching");
+        }
+    }, {passive:true});
+
+    stage.addEventListener("touchcancel", function(){
+        lightbox.classList.remove("is-pinching");
+    }, {passive:true});
+})();
+</script> <script>
+/* KONTUR: opt-in color preview. No photo requests or canvas work before activation. */
+(function(){
+'use strict';
+if(window.__konturPopularColors)return;
+window.__konturPopularColors=true;
+var base='https://raw.githubusercontent.com/davaygazu/kontur-images/9c2c98c615fd5de5a79cd742fb9a5ae8ae07cfb5/tests/color-preview/';
+function init(){
+ var modal=document.getElementById('konturProjectModal');
+ var main=document.getElementById('konturGalleryMain');
+ var title=document.getElementById('konturModalTitle');
+ if(!modal||!main||!title)return;
+ var gallery=main.parentElement,cache={},frame=null,controller=null,key='',active=false,generation=0;
+ var style=document.createElement('style');
+ style.textContent='.kontur-color-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:14px 0 0;width:100%;padding-left:0;padding-right:0;box-sizing:border-box}.kontur-color-button{font:600 13px TildaSans,Arial,sans-serif;border:1px solid #096041;border-radius:999px;background:transparent!important;color:#096041!important;padding:11px 18px;min-height:44px;cursor:pointer;-webkit-appearance:none;appearance:none}.kontur-color-toolbar[hidden]{display:none!important}@media(max-width:640px){.kontur-color-toolbar{display:flex;position:relative;clear:both;margin-top:12px}.kontur-color-button{display:inline-flex!important;align-items:center;justify-content:center;max-width:100%;font-size:14px}}.kontur-color-button:focus-visible{outline:2px solid #096041;outline-offset:3px}.kontur-color-button:disabled{opacity:.6;cursor:wait}.kontur-color-status{font:12px/1.4 TildaSans,Arial,sans-serif;color:#667068}.kontur-color-frame{display:block;border:0;width:100%;height:700px;background:#fff;border-radius:16px}.kontur-color-active>#konturGalleryMain,.kontur-color-active>#konturModalThumbs{display:none!important}';
+ document.head.appendChild(style);
+ var row=document.createElement('div');row.className='kontur-color-toolbar';
+ var button=document.createElement('button');button.type='button';button.className='kontur-color-button';button.textContent='Подобрать цвет дома';button.setAttribute('aria-expanded','false');
+ var status=document.createElement('span');status.className='kontur-color-status';status.setAttribute('role','status');
+ row.append(button,status);gallery.appendChild(row);
+ function infer(){var t=title.textContent;return t.indexOf('83,52')>=0?'igora':t.indexOf('125,48')>=0?'leon':t.indexOf('141,80')>=0?'kvartsi':'';}
+ function stop(){generation++;if(controller)controller.abort();controller=null;if(frame)frame.remove();frame=null;active=false;gallery.classList.remove('kontur-color-active');button.disabled=false;button.textContent='Подобрать цвет дома';button.setAttribute('aria-expanded','false');status.textContent='';}
+ function sync(){var next=infer();if(!modal.classList.contains('is-open')||key!==next)stop();key=next;row.hidden=!key;}
+ button.addEventListener('click',async function(){
+  if(active){stop();return;}
+  key=infer();if(!key)return;
+  var target=key,ticket=++generation;button.disabled=true;status.textContent='Подготавливаем цвета…';controller=new AbortController();
+  try{
+   var html=cache[target];
+   if(!html){var response=await fetch(base+target+'.html',{signal:controller.signal,credentials:'omit'});if(!response.ok)throw Error('HTTP '+response.status);html=await response.text();if(!html.startsWith('<!doctype html>'))throw Error('Invalid preview');cache[target]=html;}
+   if(ticket!==generation||!modal.classList.contains('is-open'))return;
+   frame=document.createElement('iframe');frame.className='kontur-color-frame';frame.title='Подбор цвета дома';frame.setAttribute('sandbox','allow-scripts');frame.setAttribute('referrerpolicy','no-referrer');frame.srcdoc=html.replace('</head>','<style>.panel{padding-left:0!important;padding-right:0!important}.footer{flex-direction:column;align-items:flex-start}.footer .reset{align-self:flex-start;margin-left:0;margin-right:0}</style></head>');gallery.insertBefore(frame,main);
+   active=true;gallery.classList.add('kontur-color-active');button.textContent='Вернуться к фотографиям';button.setAttribute('aria-expanded','true');status.textContent='';
+  }catch(error){if(error.name!=='AbortError')status.textContent='Не удалось загрузить палитру. Нажмите ещё раз.';}
+  finally{if(ticket===generation){button.disabled=false;controller=null;}}
+ });
+ window.addEventListener('message',function(event){if(!frame||event.source!==frame.contentWindow||!event.data||event.data.type!=='kontur-color-height')return;var h=Number(event.data.height);if(Number.isFinite(h)&&h>0&&h<=5000)frame.style.height=Math.ceil(h)+'px';});
+ new MutationObserver(sync).observe(modal,{attributes:true,attributeFilter:['class']});
+ new MutationObserver(sync).observe(title,{childList:true,characterData:true,subtree:true});
+ sync();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+
+</script>
+</body> </html>
