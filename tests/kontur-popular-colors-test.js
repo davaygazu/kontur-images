@@ -3,8 +3,7 @@
 'use strict';
 if(window.__konturPopularColors)return;
 window.__konturPopularColors=true;
-var script=document.currentScript;
-var base=new URL('color-preview/',script.src).href;
+var base='https://raw.githubusercontent.com/davaygazu/kontur-images/9c2c98c615fd5de5a79cd742fb9a5ae8ae07cfb5/tests/color-preview/';
 function init(){
  var modal=document.getElementById('konturProjectModal');
  var main=document.getElementById('konturGalleryMain');
